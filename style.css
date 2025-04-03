@@ -135,7 +135,7 @@ main {
         repeating-linear-gradient(0deg, transparent, transparent 49px, var(--gold-color) 49px, var(--gold-color) 50px),
         repeating-linear-gradient(90deg, transparent, transparent 49px, var(--gold-color) 49px, var(--gold-color) 50px);
     background-size: 50px 50px; /* Grid cell size */
-    opacity: 0.19; /* Less transparent grid */
+    opacity: 0.25; /* Less transparent grid */
     z-index: 0; /* Place behind content */
 
     /* Animation for movement */
@@ -1762,7 +1762,7 @@ header {
         repeating-linear-gradient(0deg, transparent, transparent 49px, var(--gold-color) 49px, var(--gold-color) 50px),
         repeating-linear-gradient(90deg, transparent, transparent 49px, var(--gold-color) 49px, var(--gold-color) 50px);
     background-size: 50px 50px; /* Grid cell size */
-    opacity: 0.19; /* Less transparent grid */
+    opacity: 0.25; /* Less transparent grid */
     z-index: 0; /* Place behind content */
 
     /* Animation for movement */
