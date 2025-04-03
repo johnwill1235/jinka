@@ -94,13 +94,12 @@ main {
     padding: 0; /* Remove padding, handle in sections */
 }
 
-/* Hero Section Styles */
+/* Hero Section Styles - MODIFIED */
 #hero {
     display: flex;
     align-items: center;
     justify-content: space-around;
     padding: 7rem 2rem; /* Slightly increased padding */
-    background: #000000; /* Strict Black */
     flex-wrap: wrap;
     border-bottom: 1px solid var(--gold-color); /* Gold Border */
     margin-bottom: 0;
@@ -109,12 +108,51 @@ main {
     box-sizing: border-box;
     position: relative; 
     overflow: hidden; 
+    /* Set solid black background */
+    background-color: #000000;
+    /* Add perspective for the 3D grid effect */
+    perspective: 800px; /* Adjusted perspective */
+    /* Remove old animation */
+    /* background: linear-gradient(-45deg, #1a1a1a, #0f0c06, #2a2a2a, #1a1a1a); */
+    /* background-size: 400% 400%; */
+    /* animation: gradientShift 15s ease infinite; */
+}
+
+/* Remove old ::before noise effect */
+/* #hero::before { ... } */
+
+/* Add the moving grid using ::after pseudo-element - NEW */
+#hero::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -50%; /* Extend left/right to cover perspective distortion */
+    right: -50%;
+    bottom: 0;
+    width: 200%; /* Ensure it covers viewport width */
+    /* Grid styling: gold lines, 1px thick */
+    background-image: 
+        repeating-linear-gradient(0deg, transparent, transparent 49px, var(--gold-color) 49px, var(--gold-color) 50px),
+        repeating-linear-gradient(90deg, transparent, transparent 49px, var(--gold-color) 49px, var(--gold-color) 50px);
+    background-size: 50px 50px; /* Grid cell size */
+    opacity: 0.1; /* Subtle grid visibility */
+    z-index: 0; /* Place behind content */
+
+    /* Animation for movement */
+    animation: moveGrid 3s linear infinite; /* Adjusted speed */
+
+    /* Apply perspective transform for horizon effect */
+    transform-origin: 50% 100%; /* Origin at bottom center */
+    transform: rotateX(70deg); /* Adjusted angle */
 }
 
 .hero-content {
     flex-basis: 50%;
     min-width: 300px; /* Ensure content doesn't get too squished */
     padding-right: 3rem; /* Increased space between text and image */
+    /* Ensure content is above the grid */
+    position: relative;
+    z-index: 1;
 }
 
 .hero-content h2 {
@@ -219,6 +257,9 @@ main {
     flex-basis: 45%;
     text-align: center;
     min-width: 350px;
+    /* Ensure image is above the grid */
+    position: relative;
+    z-index: 1;
 }
 
 /* Larger gold card in Hero */
@@ -1561,19 +1602,26 @@ address i {
 }
 
 /* Add animation keyframes at the top */
-@keyframes gradientShift {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
+/* @keyframes gradientShift { ... } REMOVED */
+
+/* Keyframes for the moving grid */
+@keyframes moveGrid {
+    0% {
+        background-position: 0 0;
+    }
+    100% {
+        /* Animate vertical position for movement */
+        background-position: 0 100px; 
+    }
 }
 
-@keyframes float {
+@keyframes float { /* Keep existing keyframes */
     0% { transform: translateY(0px); }
     50% { transform: translateY(-10px); }
     100% { transform: translateY(0px); }
 }
 
-@keyframes shimmer {
+@keyframes shimmer { /* Keep existing keyframes */
     0% { background-position: -1000px 0; }
     100% { background-position: 1000px 0; }
 }
@@ -1659,23 +1707,53 @@ header {
 
 /* Add animated background to hero section */
 #hero {
-    background: linear-gradient(-45deg, #1a1a1a, #0f0c06, #2a2a2a, #1a1a1a);
-    background-size: 400% 400%;
-    animation: gradientShift 15s ease infinite;
+    /* Remove the old gradient background and animation */
+    /* background: linear-gradient(-45deg, #1a1a1a, #0f0c06, #2a2a2a, #1a1a1a); */
+    /* background-size: 400% 400%; */
+    /* animation: gradientShift 15s ease infinite; */
+
+    /* Set solid black background */
+    background-color: #000000;
+
     position: relative;
     overflow: hidden;
+    /* Add perspective for the 3D grid effect */
+    perspective: 800px; /* Adjusted perspective */
 }
 
-#hero::before {
+/* Remove old ::before noise effect */
+/* #hero::before { ... } */
+
+/* Add the moving grid using ::after pseudo-element */
+#hero::after {
     content: '';
     position: absolute;
     top: 0;
-    left: 0;
-    right: 0;
+    left: -50%; /* Extend left/right to cover perspective distortion */
+    right: -50%;
     bottom: 0;
-    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><filter id="n"><feTurbulence type="fractalNoise" baseFrequency="0.7" numOctaves="5" stitchTiles="stitch"/></filter><rect width="100%" height="100%" filter="url(%23n)" opacity="0.03"/></svg>');
-    opacity: 0.1;
-    pointer-events: none;
+    width: 200%; /* Ensure it covers viewport width */
+    /* Grid styling: gold lines, 1px thick */
+    background-image: 
+        repeating-linear-gradient(0deg, transparent, transparent 49px, var(--gold-color) 49px, var(--gold-color) 50px),
+        repeating-linear-gradient(90deg, transparent, transparent 49px, var(--gold-color) 49px, var(--gold-color) 50px);
+    background-size: 50px 50px; /* Grid cell size */
+    opacity: 0.1; /* Subtle grid visibility */
+    z-index: 0; /* Place behind content */
+
+    /* Animation for movement */
+    animation: moveGrid 3s linear infinite; /* Adjusted speed */
+
+    /* Apply perspective transform for horizon effect */
+    transform-origin: 50% 100%; /* Origin at bottom center */
+    transform: rotateX(70deg); /* Adjusted angle */
+}
+
+/* Ensure hero content is above the grid */
+.hero-content,
+.hero-image {
+    position: relative;
+    z-index: 1;
 }
 
 /* Animate the gold card */
@@ -1808,405 +1886,6 @@ header {
 
 /* Add scroll progress indicator */
 .scroll-progress {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 3px;
-    background: linear-gradient(to right, var(--gold-color), #dcc384);
-    transform-origin: 0%;
-    transform: scaleX(0);
-    z-index: 1002;
-}
-
-/* Add responsive design improvements */
-@media (max-width: 768px) {
-    .hero-content h2 {
-        font-size: 2.5em;
-    }
-
-    .hero-content p {
-        font-size: 1.1em;
-    }
-
-    .stats-container {
-        grid-template-columns: 1fr;
-        padding: 1rem;
-    }
-
-    .stat-item {
-        padding: 1.5rem;
-    }
-
-    .benefits-grid {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
-    }
-}
-
-/* Add dark mode support */
-@media (prefers-color-scheme: dark) {
-    body {
-        background-color: #0f0c06;
-    }
-}
-
-/* Add print styles */
-@media print {
-    .scroll-progress,
-    .menu-toggle,
-    nav,
-    .cta-button,
-    .social-icons {
-        display: none;
-    }
-
-    body {
-        background: white;
-        color: black;
-    }
-
-    .gold-card-svg {
-        filter: none;
-    }
-}
-
-/* Blog Styles */
-.categories-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
-    justify-content: center;
-    padding: 2rem;
-    background: #000000; /* Black Background */
-    margin: 2rem auto;
-    border-radius: 10px;
-    border: 1px solid var(--gold-color); /* Gold Border */
-}
-
-.category-btn {
-    padding: 0.8rem 1.5rem;
-    border: 1px solid var(--gold-color);
-    background: transparent;
-    color: var(--gold-color);
-    border-radius: 25px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-.category-btn:hover,
-.category-btn.active {
-    background: var(--gold-color);
-    color: #000;
-}
-
-.blog-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 2rem;
-}
-
-.blog-article {
-    background: #000000; /* Black Background */
-    border: 1px solid var(--gold-color); /* Gold Border */
-    border-radius: 10px;
-    overflow: hidden;
-    margin-bottom: 2rem;
-    transition: transform 0.3s ease;
-}
-
-.blog-article:hover {
-    transform: translateY(-5px);
-}
-
-.article-image {
-    width: 100%;
-    height: 400px;
-    overflow: hidden;
-}
-
-.article-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.3s ease;
-}
-
-.blog-article:hover .article-image img {
-    transform: scale(1.05);
-}
-
-.article-content {
-    padding: 2rem;
-}
-
-.article-meta {
-    display: flex;
-    gap: 1rem;
-    margin-bottom: 1rem;
-    color: var(--gold-color);
-    font-size: 0.9rem;
-}
-
-.article-content h2,
-.article-content h3 {
-    margin-bottom: 1rem;
-    color: #fff;
-}
-
-.article-content p {
-    color: #dad3c0;
-    margin-bottom: 1.5rem;
-    line-height: 1.6;
-}
-
-.read-more {
-    color: var(--gold-color);
-    text-decoration: none;
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    transition: gap 0.3s ease;
-}
-
-.read-more:hover {
-    gap: 1rem;
-}
-
-.articles-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-    margin-top: 2rem;
-}
-
-.newsletter-container {
-    text-align: center;
-    padding: 3rem 2rem;
-}
-
-.newsletter-form {
-    display: flex;
-    gap: 1rem;
-    max-width: 500px;
-    margin: 2rem auto;
-}
-
-.newsletter-form input {
-    flex: 1;
-    padding: 1rem;
-    border: 1px solid var(--gold-color);
-    background: #000000; /* Black Background */
-    color: #fff;
-    border-radius: 5px;
-}
-
-/* Lottie Animation Containers */
-.lottie-container {
-    width: 100%;
-    height: 400px;
-    margin: 2rem 0;
-    background: #000000; /* Black Background */
-    border: 1px solid var(--gold-color); /* Gold Border */
-    border-radius: 10px;
-    overflow: hidden;
-    position: relative;
-}
-
-.lottie-container.small {
-    height: 200px;
-}
-
-.lottie-container.medium {
-    height: 300px;
-}
-
-.lottie-container.large {
-    height: 500px;
-}
-
-/* Animation Containers */
-.consultation-animation,
-.investment-animation,
-.success-animation,
-.contact-animation,
-.process-animation {
-    width: 100%;
-    height: 100%;
-    position: relative;
-}
-
-/* Shimmer Effect for Gold Card - REMOVED as overlay is gone */
-/* .shimmer-overlay { ... } */
-
-/* Scroll-triggered Animation Classes */
-.animate-on-scroll {
-    opacity: 0;
-    transform: translateY(50px);
-    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-}
-
-.animate-on-scroll.animate {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* Animation Variations */
-.fade-in {
-    animation: fadeIn 1s ease forwards;
-}
-
-.slide-up {
-    animation: slideUp 1s ease forwards;
-}
-
-.slide-in-left {
-    animation: slideInLeft 1s ease forwards;
-}
-
-.slide-in-right {
-    animation: slideInRight 1s ease forwards;
-}
-
-.zoom-in {
-    animation: zoomIn 1s ease forwards;
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-}
-
-@keyframes slideUp {
-    from {
-        opacity: 0;
-        transform: translateY(50px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-@keyframes slideInLeft {
-    from {
-        opacity: 0;
-        transform: translateX(-50px);
-    }
-    to {
-        opacity: 1;
-        transform: translateX(0);
-    }
-}
-
-@keyframes slideInRight {
-    from {
-        opacity: 0;
-        transform: translateX(50px);
-    }
-    to {
-        opacity: 1;
-        transform: translateX(0);
-    }
-}
-
-@keyframes zoomIn {
-    from {
-        opacity: 0;
-        transform: scale(0.8);
-    }
-    to {
-        opacity: 1;
-        transform: scale(1);
-    }
-}
-
-/* Enhanced Gold Card Animation */
-.gold-card-svg {
-    position: relative;
-    z-index: 1;
-    /* Removed float animation from here, keep it on hero container? */
-    /* animation: float 6s ease-in-out infinite; */ 
-}
-
-.gold-card-svg #gold-card-border {
-    stroke-dasharray: 1040;
-    stroke-dashoffset: 1040;
-    /* Keep draw animation, add subtle opacity pulse */
-    animation: draw 2s ease-out 0.5s forwards, pulseOpacity 3s ease-in-out infinite 2.5s;
-    /* Removed old shimmer animation */
-    /* animation-delay: 0.5s; */
-}
-
-/* Apply pulse animation to gold filled elements */
-.gold-card-svg #card-icon-group path,
-.gold-card-svg text[fill="#bda86f"] {
-    animation: pulseOpacity 3s ease-in-out infinite 2.5s;
-}
-
-/* Remove old shimmer keyframes */
-/* @keyframes shimmer { ... } */
-
-/* Add subtle pulse keyframes */
-@keyframes pulseOpacity {
-    0% {
-        opacity: 1;
-    }
-    50% {
-        opacity: 0.85;
-    }
-    100% {
-        opacity: 1;
-    }
-}
-
-/* Animation Timing Classes */
-.delay-100 { animation-delay: 100ms; }
-.delay-200 { animation-delay: 200ms; }
-.delay-300 { animation-delay: 300ms; }
-.delay-400 { animation-delay: 400ms; }
-.delay-500 { animation-delay: 500ms; }
-
-/* Lottie Animation Backgrounds */
-.lottie-bg-dark {
-    background: linear-gradient(135deg, rgba(26, 26, 26, 0.9) 0%, rgba(15, 12, 6, 0.9) 100%);
-}
-
-.lottie-bg-gold {
-    background: linear-gradient(135deg, rgba(189, 168, 111, 0.1) 0%, rgba(15, 12, 6, 0.9) 100%);
-}
-
-/* Responsive Styles */
-@media (max-width: 768px) {
-    .newsletter-form {
-        flex-direction: column;
-    }
-    
-    .process-timeline::before {
-        left: 20px;
-    }
-    
-    .process-step {
-        margin-left: 40px;
-    }
-    
-    .step-number {
-        left: 20px;
-    }
-}
-
-/* Add keyframes for gold shimmer animation */
-@keyframes goldShimmer {
-    0% {
-        background-position: 400% 0%;
-    }
-    100% {
-        background-position: 0% 0%;
-    }
-}
-
-/* Custom Scrollbar Styles */
-.custom-scrollbar {
     position: fixed; /* Changed from absolute to fixed */
     top: 0; /* Initial top position, JS will update transform */
     right: 10px; /* Position on the right side, adjust as needed */
