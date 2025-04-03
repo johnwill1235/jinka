@@ -1,0 +1,323 @@
+body {
+    /* Use Noto Sans SC for better Chinese characters, fallback to sans-serif */
+    font-family: 'Noto Sans SC', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #0f0c06; /* Dark background */
+    color: #dad3c0; /* Light text */
+    line-height: 1.6;
+}
+
+header {
+    background-color: #1a1a1a; /* Slightly lighter dark for header */
+    color: #bda86f; /* Gold text for header */
+    padding: 1rem 0; /* Slightly reduced padding */
+    text-align: center;
+    border-bottom: 3px solid #bda86f;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.2em; /* Slightly adjusted size */
+    font-weight: bold;
+}
+
+main {
+    /* Keep max-width but allow full width for hero background */
+    margin: 0 auto; /* Center main content sections */
+    padding: 0; /* Remove padding, handle in sections */
+}
+
+/* Hero Section Styles */
+#hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 6rem 2rem; /* Increased padding */
+    /* background-color: #141414; */ /* Use gradient instead */
+    background: linear-gradient(135deg, #1a1a1a 0%, #0f0c06 70%); /* Subtle gradient */
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+    border-bottom: 1px solid #333;
+    margin-bottom: 3rem; /* Keep bottom margin */
+    min-height: 70vh; /* Make hero taller, e.g., 70% of viewport height */
+    box-sizing: border-box; /* Include padding in height calculation */
+}
+
+.hero-content {
+    flex-basis: 50%;
+    min-width: 300px; /* Ensure content doesn't get too squished */
+    padding-right: 3rem; /* Increased space between text and image */
+}
+
+.hero-content h2 {
+    font-size: 3.5em; /* Larger headline */
+    color: #bda86f;
+    margin-bottom: 1.5rem; /* Increased margin */
+    border-bottom: none; /* Remove border from hero h2 */
+    padding-bottom: 0;
+    line-height: 1.2;
+}
+
+.hero-content p {
+    font-size: 1.4em; /* Larger paragraph text */
+    margin-bottom: 2.5rem; /* Increased margin */
+    color: #dad3c0;
+    max-width: 600px; /* Limit line length for readability */
+}
+
+.cta-button {
+    display: inline-block;
+    background-color: #bda86f; /* Gold button */
+    color: #0f0c06; /* Dark text */
+    padding: 1rem 2.5rem; /* Larger button padding */
+    font-size: 1.2em; /* Larger button text */
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    border: 1px solid #bda86f;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+.cta-button:hover {
+    background-color: #0f0c06;
+    color: #bda86f;
+    border-color: #bda86f;
+}
+
+.hero-image {
+    flex-basis: 40%;
+    text-align: center;
+    min-width: 300px;
+}
+
+/* Section base styles, now mostly without distinct background */
+section {
+    margin: 3rem auto; /* Increased vertical margin, centered */
+    padding: 2rem; /* Keep padding for content spacing */
+    max-width: 900px; /* Constrain content width for readability */
+}
+
+/* Keep Hero and CTA distinct and full-width */
+#hero,
+#cta {
+    max-width: none; /* Override max-width */
+    border-radius: 0; /* Ensure no radius */
+}
+
+/* Specific backgrounds only for Hero and CTA */
+#hero {
+    /* background-color: #141414; */ /* Already handled above */
+    /* padding: 4rem 2rem; */ /* Handled above */
+    margin: 0 0 3rem 0; /* Remove top margin, keep bottom */
+}
+
+#cta {
+    background-color: #bda86f;
+    color: #0f0c06;
+    margin-top: 3rem; /* Ensure margin above CTA */
+    padding: 2rem; /* Reset padding if needed */
+}
+
+#cta h2 {
+    color: #0f0c06;
+    border-bottom-color: #0f0c06;
+}
+
+#cta p {
+     color: #0f0c06; /* Ensure text color contrasts */
+}
+
+section h2 {
+    color: #bda86f; /* Gold headings */
+    border-bottom: 2px solid #bda86f;
+    padding-bottom: 0.5rem;
+    margin-bottom: 1.5rem;
+    font-size: 1.8em;
+}
+
+.gold-card-svg {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+/* --- Gold Card Border Animation --- */
+#gold-card-border {
+    /* Estimate perimeter: 2 * (318 + 198) = 1032. Use 1040 for buffer */
+    stroke-dasharray: 1040;
+    stroke-dashoffset: 1040;
+    animation: draw 2s ease-out forwards;
+    animation-delay: 0.5s; /* Start animation slightly after load */
+}
+
+/* --- SVG Icon & Text Fade-in Animation --- */
+#card-icon-group,
+#card-text-1,
+#card-text-2,
+#card-text-3,
+#card-text-4 {
+    opacity: 0;
+    animation: fadeIn 1s ease-in forwards;
+}
+
+#card-icon-group { animation-delay: 1.2s; } /* Start after border animation starts */
+#card-text-1 { animation-delay: 1.5s; }
+#card-text-2 { animation-delay: 1.7s; }
+#card-text-3 { animation-delay: 1.9s; }
+#card-text-4 { animation-delay: 2.1s; }
+
+@keyframes draw {
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+/* --- End Animations --- */
+
+/* Video Section */
+#video-intro {
+    text-align: center;
+}
+
+.video-container {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 aspect ratio */
+    height: 0;
+    overflow: hidden;
+    max-width: 100%;
+    background: #000;
+    margin-top: 1rem;
+}
+
+.video-container iframe,
+.video-container object,
+.video-container embed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+#video-intro p {
+    /* Style the placeholder text if needed */
+    margin-bottom: 1rem;
+    font-style: italic;
+}
+
+/* Benefits Section Styles (mostly unchanged) */
+#benefits ul {
+    list-style: none;
+    padding: 0;
+}
+
+#benefits li {
+    margin-bottom: 1rem;
+    padding-left: 1.5rem;
+    position: relative;
+}
+
+#benefits li::before {
+    content: '\2728'; /* Sparkle emoji or similar gold icon */
+    color: #bda86f;
+    position: absolute;
+    left: 0;
+    top: 0px;
+}
+
+#benefits strong {
+    color: #bda86f; /* Gold for emphasis */
+}
+
+/* CTA Section Styles (mostly unchanged, but target button specifically) */
+#cta {
+    text-align: center;
+    background-color: #bda86f; /* Gold background for CTA */
+    color: #0f0c06; /* Dark text on gold */
+    border: none;
+}
+
+#cta h2 {
+    color: #0f0c06;
+    border-bottom: 2px solid #0f0c06;
+}
+
+#cta p {
+    font-size: 1.1em;
+    margin-bottom: 1.5rem;
+}
+
+#cta button {
+    background-color: #0f0c06; /* Dark button */
+    color: #bda86f; /* Gold text on button */
+    border: 1px solid #0f0c06; /* Dark border initially */
+    padding: 0.8rem 2rem;
+    font-size: 1.1em;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+#cta button:hover {
+    background-color: #1f1f1f; /* Slightly lighter dark on hover */
+    color: #bda86f;
+    border-color: #bda86f; /* Gold border on hover */
+}
+
+footer {
+    text-align: center;
+    padding: 1.5rem 0;
+    margin-top: 3rem; /* Increased top margin */
+    border-top: 1px solid #333;
+    font-size: 0.9em;
+    color: #dad3c0;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    section {
+        padding: 1.5rem; /* Adjust padding for smaller screens */
+        margin: 2rem auto;
+    }
+
+    #hero {
+        flex-direction: column; /* Stack hero items vertically */
+        padding: 3rem 1rem; /* Adjusted padding */
+        min-height: auto; /* Allow natural height on small screens */
+        text-align: center; /* Center text when stacked */
+        margin-bottom: 2rem;
+    }
+
+    .hero-content {
+        padding-right: 0;
+        padding-bottom: 2rem; /* Add space below text when stacked */
+        text-align: center;
+        flex-basis: auto; /* Allow natural sizing */
+    }
+
+    .hero-content h2 {
+        font-size: 2.5em; /* Adjusted hero headline size */
+    }
+
+    .hero-content p {
+        font-size: 1.2em; /* Adjusted hero paragraph size */
+    }
+
+    .hero-image {
+         flex-basis: auto; /* Allow natural sizing */
+         margin-top: 2rem; /* Add margin above card when stacked */
+    }
+
+    header h1 {
+        font-size: 1.8em;
+    }
+
+    /* Ensure video container scales */
+    .video-container {
+        /* Aspect ratio padding handles scaling */
+    }
+} 
