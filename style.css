@@ -2020,4 +2020,352 @@ header {
 /* Ensure body/html have necessary height for scrolling calculation */
 html, body {
     height: 100%; /* This might already be set or unnecessary depending on your layout */
+}
+
+/* Blog Page Styles - Modern Redesign */
+#blog-categories {
+    margin: 3rem auto;
+    max-width: 1200px;
+    padding: 0 2rem;
+}
+
+.categories-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.category-btn {
+    background: transparent;
+    color: #dad3c0;
+    border: 1px solid #333;
+    padding: 0.8rem 1.5rem;
+    border-radius: 50px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 500;
+}
+
+.category-btn:hover {
+    border-color: var(--gold-color);
+    color: var(--gold-color);
+    transform: translateY(-2px);
+}
+
+.category-btn.active {
+    background: var(--gold-gradient);
+    color: #000;
+    border: none;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+#blog-grid {
+    max-width: 1200px;
+    margin: 0 auto 5rem;
+    padding: 0 2rem;
+}
+
+.blog-container {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+}
+
+.blog-article {
+    background-color: rgba(20, 20, 20, 0.7);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    transition: all 0.4s ease;
+    border: 1px solid #333;
+    position: relative;
+}
+
+.blog-article:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
+    border-color: var(--gold-color);
+}
+
+.blog-article::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: var(--gold-gradient);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s ease;
+}
+
+.blog-article:hover::after {
+    transform: scaleX(1);
+}
+
+.blog-article.featured {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    margin-bottom: 2rem;
+}
+
+.article-image {
+    position: relative;
+    overflow: hidden;
+}
+
+.article-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.blog-article:hover .article-image img {
+    transform: scale(1.05);
+}
+
+.article-content {
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.article-meta {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+    font-size: 0.85rem;
+}
+
+.category {
+    background: var(--gold-gradient);
+    color: #000;
+    padding: 0.3rem 0.8rem;
+    border-radius: 50px;
+    margin-right: 1rem;
+    font-weight: 600;
+}
+
+.date {
+    color: #999;
+}
+
+.blog-article h2 {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    font-size: 2rem;
+    line-height: 1.3;
+    color: #fff;
+    font-family: 'Playfair Display', serif;
+}
+
+.blog-article h3 {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+    line-height: 1.3;
+    color: #fff;
+    font-family: 'Playfair Display', serif;
+}
+
+.blog-article p {
+    margin-bottom: 1.5rem;
+    color: #dad3c0;
+    line-height: 1.7;
+}
+
+.read-more {
+    display: inline-flex;
+    align-items: center;
+    color: var(--gold-color);
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    margin-top: auto;
+}
+
+.read-more i {
+    margin-left: 0.5rem;
+    transition: transform 0.3s ease;
+}
+
+.read-more:hover {
+    color: #fff;
+}
+
+.read-more:hover i {
+    transform: translateX(5px);
+}
+
+.articles-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+
+#newsletter {
+    padding: 5rem 0;
+    position: relative;
+    overflow: hidden;
+}
+
+#newsletter::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('https://via.placeholder.com/1920x1080') center/cover no-repeat;
+    opacity: 0.1;
+    z-index: -1;
+}
+
+.newsletter-container {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 0 2rem;
+    position: relative;
+    z-index: 1;
+}
+
+.newsletter-container h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: #fff;
+    font-family: 'Playfair Display', serif;
+}
+
+.newsletter-container p {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+    color: #dad3c0;
+}
+
+.newsletter-form {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.newsletter-form input {
+    flex: 1;
+    min-width: 300px;
+    padding: 1rem 1.5rem;
+    border: none;
+    border-radius: 50px;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    font-size: 1rem;
+    outline: none;
+    border: 1px solid #333;
+    transition: all 0.3s ease;
+}
+
+.newsletter-form input:focus {
+    background-color: rgba(255, 255, 255, 0.15);
+    border-color: var(--gold-color);
+}
+
+.newsletter-form .cta-button {
+    padding: 1rem 2rem;
+    border-radius: 50px;
+}
+
+/* Responsive Design for Blog */
+@media (max-width: 992px) {
+    .articles-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .blog-article.featured {
+        grid-template-columns: 1fr;
+    }
+    
+    .blog-article.featured .article-image {
+        height: 300px;
+    }
+}
+
+@media (max-width: 768px) {
+    .articles-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .category-btn {
+        padding: 0.6rem 1.2rem;
+        font-size: 0.8rem;
+    }
+    
+    .blog-article h2 {
+        font-size: 1.6rem;
+    }
+    
+    .blog-article h3 {
+        font-size: 1.3rem;
+    }
+    
+    .article-content {
+        padding: 1.5rem;
+    }
+    
+    .newsletter-form {
+        flex-direction: column;
+    }
+    
+    .newsletter-form input,
+    .newsletter-form .cta-button {
+        width: 100%;
+    }
+}
+
+.load-more-container {
+    text-align: center;
+    margin-top: 3rem;
+}
+
+.privacy-note {
+    margin-top: 1rem;
+    opacity: 0.7;
+}
+
+.privacy-note small {
+    font-size: 0.85rem;
+}
+
+/* Update for existing newsletter section */
+#newsletter {
+    padding: 5rem 0;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Add gradient overlay to newsletter section */
+#newsletter::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(0,0,0,0.9) 0%, rgba(20,20,20,0.8) 100%);
+    z-index: -1;
+}
+
+/* Responsive tweaks */
+@media (max-width: 768px) {
+    .load-more-container {
+        margin-top: 2rem;
+    }
 } 
