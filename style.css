@@ -302,6 +302,28 @@ main {
     border-image: none; /* Ensure no gradient border on hover here */
 }
 
+/* Specific style for dark button inside the gold CTA section */
+#cta .cta-button.dark {
+    background-color: #000000; /* Keep Black Background */
+    /* Apply black text */
+    color: #000000;
+    /* Remove gradient text effect */
+    background: #000000; /* Ensure background overrides gradient */
+    -webkit-background-clip: initial;
+    background-clip: initial;
+    text-shadow: none;
+     /* Apply black border */
+    border: 2px solid #000000; /* Black Border */
+    border-image: none; /* Override gradient border */
+}
+
+/* Hover for dark button inside #cta */
+#cta .cta-button.dark:hover {
+    background-color: #222222; /* Slightly lighter black on hover */
+    color: #000000; /* Keep black text */
+    border-color: #000000; /* Keep black border */
+}
+
 .cta-button:hover {
     transform: translateY(-2px); /* Keep hover effect */
     box-shadow: 0 6px 12px rgba(0,0,0,0.3); /* Enhance shadow on hover */
@@ -309,11 +331,12 @@ main {
 
 .cta-button.primary:hover {
     /* Adjust gradient or add effect on hover if desired, e.g., brightness */
-    filter: brightness(1.1); 
+    filter: brightness(1.1);
     box-shadow: inset 0px 1px 2px rgba(0,0,0,0.4), 0px 4px 8px rgba(0,0,0,0.4);
 }
 
-.cta-button.secondary:hover, .cta-button.dark:hover, .cta-button.outline:hover:not(#cta .cta-button.outline) { 
+/* Apply hover only to secondary and dark buttons */
+.cta-button.secondary:hover, .cta-button.dark:hover {
     /* For border/text gradient buttons, make background slightly visible */
     background-color: rgba(255, 255, 255, 0.05); /* Very subtle background */
      /* Re-apply gradient text effect (necessary if background changes) */
@@ -322,6 +345,13 @@ main {
     background-clip: text;
     color: transparent;
     text-shadow: none; /* Ensure no shadow interferes */
+}
+
+/* Specific hover for outline (outside #cta) - Add subtle background only */
+.cta-button.outline:hover:not(#cta .cta-button.outline) {
+    background-color: rgba(255, 255, 255, 0.05); /* Very subtle background */
+    /* Intentionally does NOT re-apply background: var(--gold-gradient) */
+    /* Text/border should retain their original gradient defined in base style */
 }
 
 .hero-image {
