@@ -264,66 +264,57 @@ main {
     text-shadow: none; 
 }
 
+/* Remove old separate styles for .cta-button.outline */
 .cta-button.outline {
-    background-color: transparent;
-     /* Apply gradient text effect */
+    /* Apply same styles as regular cta-button */
+    display: inline-block;
+    padding: 0.8rem 1.6rem;
+    font-size: 1em;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    /* Apply gradient background */
     background: var(--gold-gradient);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-     /* Apply gradient border */
-    border: 2px solid transparent;
-    border-image: var(--gold-gradient) 1;
-     /* Remove text shadow if applied by default to text */
-    text-shadow: none; 
+    color: #000000; /* Black Text */
+    /* Remove border, background gradient is enough */
+    border: none; 
+    /* Add a subtle inset shadow for depth */
+    box-shadow: inset 0px 1px 2px rgba(0,0,0,0.3), 0px 2px 4px rgba(0,0,0,0.3);
 }
 
-/* --- NEW RULE --- */
 /* Specific style for outline button inside the gold CTA section */
 /* Keep this specific rule - black text/border inside #cta */
 #cta .cta-button.outline {
     color: #000000; /* Black text */
-    border-color: #000000; /* Black border */
+    background: transparent; /* Remove gradient background */
+    border: 2px solid #000000; /* Black border */
     border-image: none; /* Override gradient border */
-    background: none; /* Override gradient background/text */
     -webkit-background-clip: initial; /* Reset clipping */
     background-clip: initial; /* Reset clipping */
+    box-shadow: none; /* Remove box-shadow */
+}
 
+/* Update hover effect for outline button */
+.cta-button.outline:hover {
+    transform: translateY(-2px); /* Keep hover effect */
+    box-shadow: 0 6px 12px rgba(0,0,0,0.3); /* Enhance shadow on hover */
+    /* Adjust gradient or add effect on hover if desired, e.g., brightness */
+    filter: brightness(1.1);
 }
 
 /* Keep hover effect consistent with other buttons in CTA */
 #cta .cta-button.outline:hover {
     background-color: #000000; /* Black background on hover */
-    /* Apply gradient text on hover */
-    background: var(--gold-gradient);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
+    color: var(--gold-color); /* Gold text on hover */
     border-color: #000000; /* Keep border black */
-    border-image: none; /* Ensure no gradient border on hover here */
+    box-shadow: 0 6px 12px rgba(0,0,0,0.3); /* Add shadow on hover */
+    filter: none; /* Remove brightness filter */
 }
 
-/* Specific style for dark button inside the gold CTA section */
-#cta .cta-button.dark {
-    background-color: #000000; /* Keep Black Background */
-    /* Apply gold text for contrast */
-    color: var(--gold-color);
-    /* Remove gradient text override */
-    /* background: #000000; */ /* Ensure background overrides gradient */
-    /* -webkit-background-clip: initial; */
-    /* background-clip: initial; */
-    /* text-shadow: none; */
-     /* Apply black border */
-    border: 2px solid #000000; /* Black Border */
-    border-image: none; /* Override gradient border */
-}
-
-/* Hover for dark button inside #cta */
-#cta .cta-button.dark:hover {
-    background-color: #222222; /* Slightly lighter black on hover */
-    color: var(--gold-color); /* Keep gold text */
-    border-color: #000000; /* Keep black border */
-}
+/* Remove specific hover for outline (outside #cta) since it's now the same as primary */
+/* .cta-button.outline:hover:not(#cta .cta-button.outline) { ... } */
 
 .cta-button:hover {
     transform: translateY(-2px); /* Keep hover effect */
@@ -346,13 +337,6 @@ main {
     background-clip: text;
     color: transparent;
     text-shadow: none; /* Ensure no shadow interferes */
-}
-
-/* Specific hover for outline (outside #cta) - Add subtle background only */
-.cta-button.outline:hover:not(#cta .cta-button.outline) {
-    background-color: rgba(255, 255, 255, 0.05); /* Very subtle background */
-    /* Intentionally does NOT re-apply background: var(--gold-gradient) */
-    /* Text/border should retain their original gradient defined in base style */
 }
 
 .hero-image {
@@ -2399,4 +2383,26 @@ html, body {
     .load-more-container {
         margin-top: 2rem;
     }
+}
+
+/* Specific style for dark button inside the gold CTA section */
+#cta .cta-button.dark {
+    background-color: #000000; /* Keep Black Background */
+    /* Apply gold text for contrast */
+    color: var(--gold-color);
+    /* Remove gradient text override */
+    /* background: #000000; */ /* Ensure background overrides gradient */
+    /* -webkit-background-clip: initial; */
+    /* background-clip: initial; */
+    /* text-shadow: none; */
+     /* Apply black border */
+    border: 2px solid #000000; /* Black Border */
+    border-image: none; /* Override gradient border */
+}
+
+/* Hover for dark button inside #cta */
+#cta .cta-button.dark:hover {
+    background-color: #222222; /* Slightly lighter black on hover */
+    color: var(--gold-color); /* Keep gold text */
+    border-color: #000000; /* Keep black border */
 } 
