@@ -121,21 +121,32 @@ main {
 .hero-content h2 {
     font-family: 'Playfair Display', serif;
     font-size: 4em;
-    /* Use transparent text fill and clip background */
-    color: transparent;
-    background: linear-gradient(135deg, #b38728, #fcf59d, #b38728, #f3e28c);
-    background-size: 400% 100%;
+    color: transparent; /* Keep transparent */
+    /* Refined gradient for metallic look */
+    background: linear-gradient(135deg, 
+        #8e6f20 0%,  /* Darker gold shadow */
+        #f3e28c 25%, /* Highlight */
+        #c9b074 40%, /* Main gold */
+        #a8905f 50%, /* Mid-tone gold */
+        #fcf59d 60%, /* Bright highlight */
+        #c9b074 75%, /* Main gold */
+        #8e6f20 100% /* Darker gold shadow */
+    );
+    background-size: 300% 100%; /* Adjust size for effect */
     -webkit-background-clip: text;
     background-clip: text;
     margin-bottom: 1.5rem;
     border-bottom: none;
     padding-bottom: 0;
     line-height: 1.2;
-    /* Add text shadow for depth */
-    text-shadow: 1px 1px 2px rgba(0,0,0,0.5), 
-                 0 0 15px rgba(252, 245, 157, 0.4); /* Outer glow */
-    /* Add animation for shimmer */
-    animation: goldShimmer 4s linear infinite;
+    /* Refined text-shadow for depth, not glow */
+    text-shadow: 
+        1px 1px 1px rgba(0,0,0,0.6), /* Main shadow for depth */
+        0px 2px 3px rgba(0,0,0,0.4), /* Slightly softer shadow */
+        inset 0px 1px 1px rgba(255,255,255,0.2), /* Inner top highlight */
+        inset 0px -1px 1px rgba(0,0,0,0.3); /* Inner bottom shadow */
+    /* Remove shimmer animation */
+    /* animation: goldShimmer 4s linear infinite; */
     position: relative;
 }
 
@@ -217,6 +228,31 @@ main {
     max-width: 100%;
     height: auto;
     filter: drop-shadow(0 15px 25px rgba(0, 0, 0, 0.4)); /* Enhanced shadow */
+    position: relative;
+    z-index: 1;
+}
+
+.gold-card-svg #gold-card-border {
+    stroke-dasharray: 1040;
+    stroke-dashoffset: 1040;
+    animation: draw 2s ease-out 0.5s forwards, pulseOpacity 3s ease-in-out infinite 2.5s;
+}
+
+.gold-card-svg #card-icon-group path,
+.gold-card-svg text[fill="#bda86f"] {
+    animation: pulseOpacity 3s ease-in-out infinite 2.5s;
+}
+
+@keyframes pulseOpacity {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.85;
+    }
+    100% {
+        opacity: 1;
+    }
 }
 
 /* Section base styles */
@@ -1993,12 +2029,8 @@ header {
     position: relative;
 }
 
-/* Shimmer Effect for Gold Card */
-.shimmer-overlay {
-    mix-blend-mode: overlay;
-    opacity: 0.5;
-    pointer-events: none;
-}
+/* Shimmer Effect for Gold Card - REMOVED as overlay is gone */
+/* .shimmer-overlay { ... } */
 
 /* Scroll-triggered Animation Classes */
 .animate-on-scroll {
@@ -2086,24 +2118,38 @@ header {
 .gold-card-svg {
     position: relative;
     z-index: 1;
+    /* Removed float animation from here, keep it on hero container? */
+    /* animation: float 6s ease-in-out infinite; */ 
 }
 
 .gold-card-svg #gold-card-border {
     stroke-dasharray: 1040;
     stroke-dashoffset: 1040;
-    animation: draw 2s ease-out forwards, shimmer 3s ease-in-out infinite;
-    animation-delay: 0.5s;
+    /* Keep draw animation, add subtle opacity pulse */
+    animation: draw 2s ease-out 0.5s forwards, pulseOpacity 3s ease-in-out infinite 2.5s;
+    /* Removed old shimmer animation */
+    /* animation-delay: 0.5s; */
 }
 
-@keyframes shimmer {
+/* Apply pulse animation to gold filled elements */
+.gold-card-svg #card-icon-group path,
+.gold-card-svg text[fill="#bda86f"] {
+    animation: pulseOpacity 3s ease-in-out infinite 2.5s;
+}
+
+/* Remove old shimmer keyframes */
+/* @keyframes shimmer { ... } */
+
+/* Add subtle pulse keyframes */
+@keyframes pulseOpacity {
     0% {
-        stroke-opacity: 1;
+        opacity: 1;
     }
     50% {
-        stroke-opacity: 0.6;
+        opacity: 0.85;
     }
     100% {
-        stroke-opacity: 1;
+        opacity: 1;
     }
 }
 

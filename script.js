@@ -147,35 +147,23 @@ Object.entries(lottieAnimations).forEach(([key, config]) => {
     }
 });
 
-// Gold Card Shimmer Effect
-const goldCard = document.querySelector('.gold-card-svg');
-if (goldCard) {
-    // Add shimmer overlay
-    const shimmerOverlay = document.createElementNS("http://www.w3.org/2000/svg", "rect");
-    shimmerOverlay.setAttribute('width', '100%');
-    shimmerOverlay.setAttribute('height', '100%');
-    shimmerOverlay.setAttribute('fill', 'url(#shimmer-gradient)');
-    shimmerOverlay.setAttribute('class', 'shimmer-overlay');
+// Gold Card Shimmer Effect - REMOVED overlay logic
+// const goldCard = document.querySelector('.gold-card-svg');
+// if (goldCard) {
+//     // Add shimmer overlay - REMOVED
+//     // const shimmerOverlay = document.createElementNS("http://www.w3.org/2000/svg", "rect");
+//     // shimmerOverlay.setAttribute('width', '100%');
+//     // shimmerOverlay.setAttribute('height', '100%');
+//     // shimmerOverlay.setAttribute('fill', 'url(#shimmer-gradient)');
+//     // shimmerOverlay.setAttribute('class', 'shimmer-overlay');
     
-    // Add gradient definition
-    const defs = document.createElementNS("http://www.w3.org/2000/svg", "defs");
-    defs.innerHTML = `
-        <linearGradient id="shimmer-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
-            <stop offset="0%" style="stop-color: rgba(189,168,111,0);">
-                <animate attributeName="offset" values="-1;2" dur="2s" repeatCount="indefinite"/>
-            </stop>
-            <stop offset="50%" style="stop-color: rgba(189,168,111,0.2);">
-                <animate attributeName="offset" values="0;3" dur="2s" repeatCount="indefinite"/>
-            </stop>
-            <stop offset="100%" style="stop-color: rgba(189,168,111,0);">
-                <animate attributeName="offset" values="1;4" dur="2s" repeatCount="indefinite"/>
-            </stop>
-        </linearGradient>
-    `;
+//     // Add gradient definition - REMOVED
+//     // const defs = document.createElementNS("http://www.w3.org/2000/svg", "defs");
+//     // defs.innerHTML = ` ... gradient ... `;
     
-    goldCard.insertBefore(defs, goldCard.firstChild);
-    goldCard.appendChild(shimmerOverlay);
-}
+//     // goldCard.insertBefore(defs, goldCard.firstChild); - REMOVED
+//     // goldCard.appendChild(shimmerOverlay); - REMOVED
+// }
 
 // Add scroll-triggered animations
 const animatedElements = document.querySelectorAll('.animate-on-scroll');
