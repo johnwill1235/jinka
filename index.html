@@ -5,14 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>环球精英金卡服务</title>
     <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <header>
-        <nav>
-             <!-- Placeholder for navigation links if needed -->
-             <!-- <a href="#about">关于我们</a> <a href="#services">服务</a> ... -->
-        </nav>
-        <h1>环球精英金卡服务</h1>
+        <div class="header-container">
+            <div class="logo">
+                <span class="logo-text">环球精英</span>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="about.html">关于我们</a></li>
+                    <li><a href="services.html">服务项目</a></li>
+                    <li><a href="card.html">金卡详情</a></li>
+                    <li><a href="contact.html">联系我们</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
 
     <main>
@@ -21,12 +31,15 @@
             <div class="hero-content">
                 <h2>开启非凡未来，尊享无限可能</h2>
                 <p>独家"特朗普金卡"咨询服务：专为全球精英设计，提供前所未有的灵活性、税务优势和安全保障。投资五百万美元，拥抱美国机遇。</p>
-                <a href="#cta" class="cta-button">立即了解详情</a>
+                <div class="hero-buttons">
+                    <a href="#cta" class="cta-button primary">立即咨询</a>
+                    <a href="card.html" class="cta-button secondary">了解更多</a>
+                </div>
             </div>
             <div class="hero-image">
-                <!-- Updated SVG Gold Card -->
-                <svg width="320" height="200" viewBox="0 0 320 200" xmlns="http://www.w3.org/2000/svg" class="gold-card-svg">
-                    <!-- Gold Border, Transparent Fill - Thinner stroke and added ID -->
+                <!-- Updated SVG Gold Card - Now larger -->
+                <svg width="400" height="250" viewBox="0 0 320 200" xmlns="http://www.w3.org/2000/svg" class="gold-card-svg">
+                    <!-- Gold Border, Transparent Fill -->
                     <rect id="gold-card-border" width="318" height="198" x="1" y="1" rx="15" ry="15" fill="transparent" stroke="#bda86f" stroke-width="2"/>
 
                     <!-- Golden Profile Icon Placeholder -->
@@ -47,51 +60,141 @@
         <section id="video-intro">
              <h2>什么是环球精英金卡？</h2>
              <div class="video-container">
-                 <!-- Placeholder for YouTube Embed -->
-                 <p>[此处嵌入介绍视频 - 例如 YouTube iframe]</p>
-                 <iframe width="560" height="315" src="https://youtu.be/182ckTL2KBA?si=ndRP66PRE_oCSzmb&t=4239" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-                 <!-- Replace dQw4w9WgXcQ with your actual video ID -->
+                 <iframe width="560" height="315" src="https://www.youtube.com/embed/182ckTL2KBA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
              </div>
         </section>
 
-        <!-- Benefits Section (formerly intro/card showcase combined) -->
+        <!-- Benefits Section with tech-style cards -->
         <section id="benefits">
             <h2>核心优势</h2>
-            <!-- SVG moved to hero, removed from here -->
-             <p>一张通往无限可能的钥匙，为您和家人带来独特优势：</p>
-            <ul>
-                <li><strong>五百万美元投资：</strong> 获得在美国居住的权利，无需成为公民。</li>
-                <li><strong>税务优化：</strong> 仅对在美国境内产生的收入征税，全球收入免税。</li>
-                <li><strong>居住自由：</strong> 可选择在美国居住，亦可保留全球公民身份。</li>
-                <li><strong>家庭计划：</strong> 为您的家人（最多六位）同时办理，共享尊贵身份。</li>
-                <li><strong>安全港湾：</strong> 无论世界局势如何动荡，美国永远是您的"家"，随时欢迎您回来。</li>
-                <li><strong>精英社区：</strong> 加入全球最具影响力和创造力的领袖网络。</li>
-            </ul>
+            <p class="section-intro">一张通往无限可能的钥匙，为您和家人带来独特优势：</p>
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="benefit-icon"><i class="fas fa-dollar-sign"></i></div>
+                    <h3>五百万美元投资</h3>
+                    <p>获得在美国居住的权利，无需成为公民。</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon"><i class="fas fa-file-invoice-dollar"></i></div>
+                    <h3>税务优化</h3>
+                    <p>仅对在美国境内产生的收入征税，全球收入免税。</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon"><i class="fas fa-plane"></i></div>
+                    <h3>居住自由</h3>
+                    <p>可选择在美国居住，亦可保留全球公民身份。</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon"><i class="fas fa-users"></i></div>
+                    <h3>家庭计划</h3>
+                    <p>为您的家人（最多六位）同时办理，共享尊贵身份。</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon"><i class="fas fa-shield-alt"></i></div>
+                    <h3>安全港湾</h3>
+                    <p>无论世界局势如何动荡，美国永远是您的"家"。</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon"><i class="fas fa-handshake"></i></div>
+                    <h3>精英社区</h3>
+                    <p>加入全球最具影响力和创造力的领袖网络。</p>
+                </div>
+            </div>
         </section>
 
-        <!-- Placeholder Section: About Us -->
-        <section id="about">
-            <h2>关于我们</h2>
-            <p>[关于咨询公司、经验、团队等的介绍文字...]</p>
-        </section>
-
-        <!-- Placeholder Section: Process/How it Works -->
+        <!-- Process Flow Section -->
         <section id="process">
             <h2>办理流程</h2>
-            <p>[解释获取金卡的步骤、时间线、所需文件等...]</p>
+            <div class="process-timeline">
+                <div class="process-step">
+                    <div class="step-number">1</div>
+                    <h3>初步咨询</h3>
+                    <p>与我们的专业顾问团队进行一对一咨询，评估您的需求与资格。</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">2</div>
+                    <h3>准备申请</h3>
+                    <p>在专家指导下准备所需文件，包括身份证明、资产证明及投资计划。</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">3</div>
+                    <h3>投资完成</h3>
+                    <p>完成投资流程，我们的团队将全程协助您确保资金安全转移。</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">4</div>
+                    <h3>身份获取</h3>
+                    <p>领取您的环球精英金卡，开启您的全球精英生活方式。</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Stats Section -->
+        <section id="stats">
+            <h2>我们的成就</h2>
+            <div class="stats-container">
+                <div class="stat-item">
+                    <div class="stat-number">1000+</div>
+                    <div class="stat-label">满意客户</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">98%</div>
+                    <div class="stat-label">申请成功率</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">15年</div>
+                    <div class="stat-label">行业经验</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">24/7</div>
+                    <div class="stat-label">专属服务</div>
+                </div>
+            </div>
         </section>
 
         <!-- Call to Action Section -->
         <section id="cta">
-            <h2>立即咨询</h2>
-            <p>了解更多关于环球精英金卡的信息，开启您的非凡旅程。联系我们的专家顾问团队。</p>
-            <button>联系我们</button> <!-- Consider making this a link/form -->
+            <h2>开启您的精英旅程</h2>
+            <p>了解更多关于环球精英金卡的信息，联系我们的专家顾问团队预约一对一咨询。</p>
+            <div class="cta-buttons">
+                <a href="contact.html" class="cta-button dark">联系我们</a>
+                <a href="tel:+10000000000" class="cta-button outline">致电咨询</a>
+            </div>
         </section>
     </main>
 
     <footer>
-         <p>&copy; 2024 环球精英金卡服务。保留所有权利。</p>
-         <!-- Add more footer links/info if needed -->
+        <div class="footer-container">
+            <div class="footer-column">
+                <h3>环球精英</h3>
+                <p>专业的全球身份规划与投资咨询服务</p>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-weixin"></i></a>
+                    <a href="#"><i class="fab fa-weibo"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+            <div class="footer-column">
+                <h3>快速链接</h3>
+                <ul>
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="about.html">关于我们</a></li>
+                    <li><a href="services.html">服务项目</a></li>
+                    <li><a href="card.html">金卡详情</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>联系我们</h3>
+                <address>
+                    <p><i class="fas fa-map-marker-alt"></i> 上海市浦东新区世纪大道100号</p>
+                    <p><i class="fas fa-phone"></i> +86 123 4567 8910</p>
+                    <p><i class="fas fa-envelope"></i> info@huanqiujingying.com</p>
+                </address>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2024 环球精英金卡服务。保留所有权利。</p>
+        </div>
     </footer>
     <!-- Add Google Font for better Chinese characters if desired -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
