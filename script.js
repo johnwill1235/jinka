@@ -99,13 +99,114 @@ buttons.forEach(button => {
     });
 });
 
-// Lottie Animation for Process Flow
-const processAnimation = lottie.loadAnimation({
-    container: document.querySelector('.process-animation'),
-    renderer: 'svg',
-    loop: true,
-    autoplay: true,
-    path: 'animations/process-flow.json' // This will be the path to your Lottie animation file
+// Lottie Animations Configuration
+const lottieAnimations = {
+    processFlow: {
+        container: '.process-animation',
+        path: 'animations/process-flow.json',
+        loop: true,
+        autoplay: true
+    },
+    consultation: {
+        container: '.consultation-animation',
+        path: 'animations/consultation.json',
+        loop: true,
+        autoplay: true
+    },
+    investment: {
+        container: '.investment-animation',
+        path: 'animations/investment.json',
+        loop: true,
+        autoplay: true
+    },
+    success: {
+        container: '.success-animation',
+        path: 'animations/success.json',
+        loop: true,
+        autoplay: true
+    },
+    contact: {
+        container: '.contact-animation',
+        path: 'animations/contact.json',
+        loop: true,
+        autoplay: true
+    }
+};
+
+// Initialize all Lottie animations
+Object.entries(lottieAnimations).forEach(([key, config]) => {
+    const container = document.querySelector(config.container);
+    if (container) {
+        lottie.loadAnimation({
+            container: container,
+            renderer: 'svg',
+            loop: config.loop,
+            autoplay: config.autoplay,
+            path: config.path
+        });
+    }
+});
+
+// Gold Card Shimmer Effect
+const goldCard = document.querySelector('.gold-card-svg');
+if (goldCard) {
+    // Add shimmer overlay
+    const shimmerOverlay = document.createElementNS("http://www.w3.org/2000/svg", "rect");
+    shimmerOverlay.setAttribute('width', '100%');
+    shimmerOverlay.setAttribute('height', '100%');
+    shimmerOverlay.setAttribute('fill', 'url(#shimmer-gradient)');
+    shimmerOverlay.setAttribute('class', 'shimmer-overlay');
+    
+    // Add gradient definition
+    const defs = document.createElementNS("http://www.w3.org/2000/svg", "defs");
+    defs.innerHTML = `
+        <linearGradient id="shimmer-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" style="stop-color: rgba(189,168,111,0);">
+                <animate attributeName="offset" values="-1;2" dur="2s" repeatCount="indefinite"/>
+            </stop>
+            <stop offset="50%" style="stop-color: rgba(189,168,111,0.2);">
+                <animate attributeName="offset" values="0;3" dur="2s" repeatCount="indefinite"/>
+            </stop>
+            <stop offset="100%" style="stop-color: rgba(189,168,111,0);">
+                <animate attributeName="offset" values="1;4" dur="2s" repeatCount="indefinite"/>
+            </stop>
+        </linearGradient>
+    `;
+    
+    goldCard.insertBefore(defs, goldCard.firstChild);
+    goldCard.appendChild(shimmerOverlay);
+}
+
+// Add scroll-triggered animations
+const animatedElements = document.querySelectorAll('.animate-on-scroll');
+const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px'
+};
+
+const observer = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('animate');
+            if (entry.target.dataset.animation) {
+                const animationName = entry.target.dataset.animation;
+                if (lottieAnimations[animationName]) {
+                    const animation = lottie.loadAnimation({
+                        container: entry.target,
+                        renderer: 'svg',
+                        loop: true,
+                        autoplay: true,
+                        path: lottieAnimations[animationName].path
+                    });
+                }
+            }
+            observer.unobserve(entry.target);
+        }
+    });
+}, observerOptions);
+
+animatedElements.forEach(element => {
+    observer.observe(element);
 });
 
 // Blog Category Filtering
