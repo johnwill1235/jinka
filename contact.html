@@ -63,6 +63,103 @@
                     <!-- <img src="images/wechat-qr.png" alt="微信二维码" class="wechat-qr-simple"> -->
                 </div>
             </div>
+
+            <!-- Add Operating Hours -->
+            <div class="operating-hours">
+                <h4><i class="fas fa-clock"></i> 办公时间</h4>
+                <p>周一至周五: 9:00 AM - 6:00 PM</p>
+                <p>周末及节假日休息</p>
+            </div>
+        </section>
+
+        <!-- Add Contact Form Section -->
+        <section id="contact-form-section" class="light-section">
+            <h2>发送消息</h2>
+            <p class="section-intro">有任何疑问或需要进一步的咨询？请填写下方的表格，我们的团队将尽快与您联系。</p>
+            <form class="contact-form" action="/submit-contact" method="POST">
+                <div class="form-group">
+                    <label for="name">姓名</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">邮箱</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="subject">主题</label>
+                    <input type="text" id="subject" name="subject" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">内容</label>
+                    <textarea id="message" name="message" rows="5" required></textarea>
+                </div>
+                <button type="submit" class="cta-button">提交咨询</button>
+            </form>
+        </section>
+
+        <!-- Add FAQ Section -->
+        <section id="faq-contact" class="light-section">
+            <h2>常见问题</h2>
+            <p class="section-intro">您可能会在这里找到您问题的答案。</p>
+            <div class="faqs-container compact">
+                <div class="faq-item">
+                    <button class="faq-question"><span>如何开始咨询流程？</span> <i class="fas fa-chevron-down"></i></button>
+                    <div class="faq-answer">
+                        <p>您可以通过本页的联系表格、电话或邮件与我们联系，我们的顾问会尽快回复您，了解您的需求并安排初步咨询。</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question"><span>咨询是免费的吗？</span> <i class="fas fa-chevron-down"></i></button>
+                    <div class="faq-answer">
+                        <p>首次初步咨询通常是免费的。在了解您的具体需求后，我们会告知您后续服务的相关费用。</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question"><span>环球精英金卡服务包含哪些内容？</span> <i class="fas fa-chevron-down"></i></button>
+                    <div class="faq-answer">
+                        <p>我们的金卡服务提供全面的全球身份规划、投资咨询、法律支持、税务优化等一系列高端定制服务。详情请参考<a href="/card">金卡详情</a>页面或直接联系我们。</p>
+                    </div>
+                </div>
+                <!-- Add more FAQs as needed -->
+            </div>
+        </section>
+
+        <!-- Add Office Locations Section -->
+        <section id="office-locations" class="dark-section">
+            <h2>办公地点</h2>
+            <p class="section-intro">欢迎莅临我们的办公室进行面对面咨询。</p>
+            <div class="locations-grid">
+                <div class="location-card">
+                    <div class="location-icon"><i class="fas fa-map-marker-alt"></i></div>
+                    <h4>上海办公室</h4>
+                    <address>
+                        <p>上海市 [具体地址]</p>
+                        <p>邮编: 200000</p>
+                        <p>电话: +86 21 1234 5678</p> <!-- Placeholder -->
+                    </address>
+                    <a href="#" class="map-link">查看地图 <i class="fas fa-external-link-alt"></i></a>
+                </div>
+                <div class="location-card">
+                    <div class="location-icon"><i class="fas fa-map-marker-alt"></i></div>
+                    <h4>北京办公室</h4>
+                    <address>
+                        <p>北京市 [具体地址]</p>
+                        <p>邮编: 100000</p>
+                        <p>电话: +86 10 9876 5432</p> <!-- Placeholder -->
+                    </address>
+                    <a href="#" class="map-link">查看地图 <i class="fas fa-external-link-alt"></i></a>
+                </div>
+                <!-- Add more locations as needed -->
+            </div>
+
+            <!-- Add Map Embed Container -->
+            <div class="map-container">
+                <!-- Placeholder for Map Embed (e.g., Google Maps iframe) -->
+                <div class="map-placeholder">
+                    <p>在此处嵌入交互式地图</p>
+                    <i class="fas fa-map-marked-alt"></i>
+                </div>
+            </div>
         </section>
 
         <!-- Testimonials -->
@@ -97,6 +194,16 @@
                         </div>
                     </div>
                 </div>
+            </div>
+        </section>
+
+        <!-- Final Call to Action Section -->
+        <section id="final-cta" class="light-section">
+            <h2>准备好开始了吗？</h2>
+            <p>我们的专家团队随时准备为您提供个性化的咨询服务。立即联系我们，开启您的全球机遇之旅。</p>
+            <div class="cta-buttons">
+                <a href="#contact-form-section" class="cta-button primary">填写咨询表格</a>
+                <a href="tel:+8612345678910" class="cta-button secondary">立即致电</a>
             </div>
         </section>
 

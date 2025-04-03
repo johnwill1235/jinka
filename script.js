@@ -303,4 +303,55 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Update on resize
     window.addEventListener('resize', updateScrollbar);
+});
+
+// FAQ Accordion Functionality
+document.addEventListener('DOMContentLoaded', () => {
+    const faqItems = document.querySelectorAll('.faq-item');
+
+    faqItems.forEach(item => {
+        const questionButton = item.querySelector('.faq-question');
+        const answer = item.querySelector('.faq-answer');
+
+        if (questionButton && answer) {
+            questionButton.addEventListener('click', () => {
+                const isActive = item.classList.contains('active');
+
+                // Optional: Close other open FAQs when one is opened
+                // faqItems.forEach(otherItem => {
+                //     if (otherItem !== item && otherItem.classList.contains('active')) {
+                //         otherItem.classList.remove('active');
+                //         otherItem.querySelector('.faq-answer').style.maxHeight = null;
+                //     }
+                // });
+
+                if (!isActive) {
+                    item.classList.add('active');
+                    // Set max-height to the content's scroll height for smooth opening
+                    answer.style.maxHeight = answer.scrollHeight + "px";
+                } else {
+                    item.classList.remove('active');
+                    answer.style.maxHeight = null; // Collapse the answer
+                }
+            });
+
+            // Recalculate max-height on window resize if the item is active
+            window.addEventListener('resize', () => {
+                if (item.classList.contains('active')) {
+                    // Temporarily remove transition to get accurate scrollHeight
+                    const currentTransition = answer.style.transition;
+                    answer.style.transition = '';
+                    
+                    // Get the new scroll height and apply it
+                    answer.style.maxHeight = answer.scrollHeight + 'px';
+                    
+                    // Restore the transition
+                    // Using requestAnimationFrame helps ensure the style recalculation happens
+                    requestAnimationFrame(() => {
+                        answer.style.transition = currentTransition;
+                    });
+                }
+            });
+        }
+    });
 }); 
