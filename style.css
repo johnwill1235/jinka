@@ -16,15 +16,14 @@ body {
 /* Define new gold color and gradient */
 :root {
     --gold-color: #c9b074; /* Richer gold - kept for fallback or simple accents if needed */
-    /* Metallic Gold Gradient */
+    /* Metallic Gold Gradient - UPDATED */
     --gold-gradient: linear-gradient(135deg, 
-        #8e6f20 0%,  /* Darker gold shadow */
-        #f3e28c 25%, /* Highlight */
-        #c9b074 40%, /* Main gold */
-        #a8905f 50%, /* Mid-tone gold */
-        #fcf59d 60%, /* Bright highlight */
-        #c9b074 75%, /* Main gold */
-        #8e6f20 100% /* Darker gold shadow */
+        #a17d1a 0%,   /* Darker Base */
+        #d4af37 20%, /* Rich Mid Gold */
+        #fff0a0 40%, /* Bright Highlight */
+        #d4af37 60%, /* Rich Mid Gold */
+        #b79226 80%, /* Slightly Darker Mid */
+        #a17d1a 100%  /* Darker Base */
     );
     --text-shadow-gold: 
         1px 1px 1px rgba(0,0,0,0.6), /* Main shadow for depth */
