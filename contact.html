@@ -38,162 +38,30 @@
             </div>
         </section>
 
-        <!-- Contact Information -->
-        <section id="contact-info">
-            <h2>全球联络网络</h2>
-            <p class="section-intro">环球精英在全球主要城市均设有办事处，为您提供便捷的咨询服务。您可以选择最方便的方式与我们联系。</p>
-            
-            <div class="contact-offices">
-                <div class="contact-office">
-                    <div class="office-icon"><i class="fas fa-building"></i></div>
-                    <h3>上海总部</h3>
-                    <address>
-                        <p><i class="fas fa-map-marker-alt"></i> 上海市浦东新区世纪大道100号环球金融中心21楼</p>
-                        <p><i class="fas fa-phone"></i> +86 (21) 5888 8888</p>
-                        <p><i class="fas fa-envelope"></i> shanghai@huanqiujingying.com</p>
-                        <p><i class="fas fa-clock"></i> 周一至周五: 9:00 - 18:00</p>
-                    </address>
+        <!-- Add Simplified Contact Methods Section -->
+        <section id="simplified-contact" class="dark-section">
+            <h2>联系方式</h2>
+            <p class="section-intro">我们随时准备为您提供帮助。请通过以下方式与我们联系。</p>
+            <div class="contact-methods-simple">
+                <div class="contact-method-simple">
+                    <div class="method-icon-simple"><i class="fas fa-phone-alt"></i></div>
+                    <h4>电话咨询</h4>
+                    <p>+86 123 4567 8910</p> <!-- Placeholder -->
+                    <a href="tel:+8612345678910" class="cta-button outline">立即致电</a>
                 </div>
-                
-                <div class="contact-office">
-                    <div class="office-icon"><i class="fas fa-building"></i></div>
-                    <h3>香港办公室</h3>
-                    <address>
-                        <p><i class="fas fa-map-marker-alt"></i> 香港中环金融街8号国际金融中心15楼</p>
-                        <p><i class="fas fa-phone"></i> +852 2888 8888</p>
-                        <p><i class="fas fa-envelope"></i> hongkong@huanqiujingying.com</p>
-                        <p><i class="fas fa-clock"></i> 周一至周五: 9:00 - 18:00</p>
-                    </address>
+                <div class="contact-method-simple">
+                    <div class="method-icon-simple"><i class="fas fa-envelope"></i></div>
+                    <h4>邮件咨询</h4>
+                    <p>info@huanqiujingying.com</p> <!-- Placeholder -->
+                    <a href="mailto:info@huanqiujingying.com" class="cta-button outline">发送邮件</a>
                 </div>
-                
-                <div class="contact-office">
-                    <div class="office-icon"><i class="fas fa-building"></i></div>
-                    <h3>纽约办公室</h3>
-                    <address>
-                        <p><i class="fas fa-map-marker-alt"></i> 纽约曼哈顿第五大道888号10楼</p>
-                        <p><i class="fas fa-phone"></i> +1 212 888 8888</p>
-                        <p><i class="fas fa-envelope"></i> newyork@huanqiujingying.com</p>
-                        <p><i class="fas fa-clock"></i> 周一至周五: 9:00 - 18:00</p>
-                    </address>
+                <div class="contact-method-simple">
+                    <div class="method-icon-simple"><i class="fab fa-weixin"></i></div>
+                    <h4>微信咨询</h4>
+                    <p>微信号: YourWeChatID</p> <!-- Placeholder -->
+                    <!-- Optional: Add QR code image -->
+                    <!-- <img src="images/wechat-qr.png" alt="微信二维码" class="wechat-qr-simple"> -->
                 </div>
-            </div>
-        </section>
-
-        <!-- Contact Form Section -->
-        <section id="contact-form" class="dark-section">
-            <div class="two-column-layout">
-                <div class="form-column">
-                    <h2>预约咨询</h2>
-                    <p>填写以下表格，我们的专业顾问将在24小时内与您联系，安排一对一咨询。</p>
-                    
-                    <form class="consultation-form">
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="name">姓名 <span class="required">*</span></label>
-                                <input type="text" id="name" name="name" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="phone">电话 <span class="required">*</span></label>
-                                <input type="tel" id="phone" name="phone" required>
-                            </div>
-                        </div>
-                        
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="email">电子邮箱 <span class="required">*</span></label>
-                                <input type="email" id="email" name="email" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="preferred-contact">首选联系方式</label>
-                                <select id="preferred-contact" name="preferred-contact">
-                                    <option value="phone">电话</option>
-                                    <option value="email">电子邮箱</option>
-                                    <option value="wechat">微信</option>
-                                </select>
-                            </div>
-                        </div>
-                        
-                        <div class="form-group full-width">
-                            <label for="service-interest">感兴趣的服务 <span class="required">*</span></label>
-                            <select id="service-interest" name="service-interest" required>
-                                <option value="" disabled selected>请选择...</option>
-                                <option value="gold-card">特朗普金卡咨询</option>
-                                <option value="identity-planning">全球身份规划</option>
-                                <option value="tax-planning">国际税务规划</option>
-                                <option value="asset-allocation">全球资产配置</option>
-                                <option value="education-planning">子女教育规划</option>
-                                <option value="other">其他服务</option>
-                            </select>
-                        </div>
-                        
-                        <div class="form-group full-width">
-                            <label for="message">咨询内容</label>
-                            <textarea id="message" name="message" rows="5" placeholder="请简要描述您的需求或问题，以便我们更好地为您提供服务..."></textarea>
-                        </div>
-                        
-                        <div class="form-group privacy-policy">
-                            <input type="checkbox" id="privacy-consent" name="privacy-consent" required>
-                            <label for="privacy-consent">我同意环球精英根据<a href="#">隐私政策</a>处理我的个人信息</label>
-                        </div>
-                        
-                        <div class="form-submit">
-                            <button type="submit" class="cta-button primary">提交咨询</button>
-                        </div>
-                    </form>
-                </div>
-                
-                <div class="info-column">
-                    <div class="contact-card">
-                        <h3>即刻联系</h3>
-                        <div class="contact-method">
-                            <div class="method-icon"><i class="fas fa-phone-alt"></i></div>
-                            <div class="method-details">
-                                <h4>电话咨询</h4>
-                                <p>+86 400 888 8888</p>
-                                <a href="tel:+8640088888888" class="method-button">立即致电</a>
-                            </div>
-                        </div>
-                        
-                        <div class="contact-method">
-                            <div class="method-icon"><i class="fab fa-weixin"></i></div>
-                            <div class="method-details">
-                                <h4>微信咨询</h4>
-                                <p>扫描二维码添加客服</p>
-                                <div class="qr-code">
-                                    <img src="https://via.placeholder.com/150" alt="微信二维码">
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="contact-method">
-                            <div class="method-icon"><i class="fas fa-envelope"></i></div>
-                            <div class="method-details">
-                                <h4>邮件咨询</h4>
-                                <p>info@huanqiujingying.com</p>
-                                <a href="mailto:info@huanqiujingying.com" class="method-button">发送邮件</a>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="contact-hours">
-                        <h3>服务时间</h3>
-                        <ul>
-                            <li><span>周一至周五:</span> 9:00 - 18:00</li>
-                            <li><span>周六:</span> 10:00 - 16:00</li>
-                            <li><span>周日:</span> 休息</li>
-                        </ul>
-                        <p>* 如遇紧急情况，可拨打24小时服务热线</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Map Section -->
-        <section id="map-section">
-            <h2>全球办公位置</h2>
-            <div class="map-container">
-                <!-- Replace with actual map service (Google Maps, Baidu Maps, etc.) -->
-                <img src="https://via.placeholder.com/1200x500" alt="环球精英全球办公位置地图" class="responsive-map">
             </div>
         </section>
 
@@ -232,15 +100,6 @@
             </div>
         </section>
 
-        <!-- Call to Action -->
-        <section id="cta">
-            <h2>需要立即帮助？</h2>
-            <p>我们的顾问团队随时准备为您提供支持。您可以直接致电或发送邮件给我们。</p>
-            <div class="cta-buttons">
-                <a href="tel:+8640088888888" class="cta-button outline">立即致电</a>
-                <a href="mailto:consulting@example.com" class="cta-button outline">发送邮件</a>
-            </div>
-        </section>
     </main>
 
     <footer>
@@ -257,24 +116,24 @@
             <div class="footer-column">
                 <h3>快速链接</h3>
                 <ul>
-                    <li><a href="index">首页</a></li>
-                    <li><a href="about">关于我们</a></li>
-                    <li><a href="services">服务项目</a></li>
-                    <li><a href="card">金卡详情</a></li>
-                    <li><a href="contact">联系我们</a></li>
+                    <li><a href="/">首页</a></li>
+                    <li><a href="/about">关于我们</a></li>
+                    <li><a href="/services">服务项目</a></li>
+                    <li><a href="/card">金卡详情</a></li>
+                    <li><a href="/blog">博客</a></li>
+                    <li><a href="/contact">联系我们</a></li>
                 </ul>
             </div>
             <div class="footer-column">
                 <h3>联系我们</h3>
                 <address>
-                    <p><i class="fas fa-map-marker-alt"></i> 上海市浦东新区世纪大道100号</p>
                     <p><i class="fas fa-phone"></i> +86 123 4567 8910</p>
                     <p><i class="fas fa-envelope"></i> info@huanqiujingying.com</p>
                 </address>
             </div>
         </div>
         <div class="copyright">
-            <p>&copy; 2024 环球精英金卡服务。保留所有权利。</p>
+            <p>&copy; 2025 环球精英金卡服务。保留所有权利。</p>
         </div>
     </footer>
     <script src="script.js"></script>
