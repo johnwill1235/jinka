@@ -15,7 +15,7 @@ body {
 
 /* Define new gold color and gradient */
 :root {
-    --gold-color: #c9b074; /* Richer gold - kept for fallback or simple accents if needed */
+    --gold-color: #d4af37; /* Richer gold - kept for fallback or simple accents if needed */
     /* Metallic Gold Gradient - UPDATED */
     --gold-gradient: linear-gradient(135deg, 
         #a17d1a 0%,   /* Darker Base */
