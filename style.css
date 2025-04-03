@@ -250,14 +250,15 @@ main {
 }
 
 .cta-button.dark {
-    background-color: var(--gold-color); /* Black Background */
+    /* Transparent Background */
+    background-color: transparent;
      /* Apply gradient text effect */
     background: var(--gold-gradient);
     -webkit-background-clip: text;
     background-clip: text;
-    color: transparent;
+    color: transparent; /* Keep transparent for gradient text */
      /* Apply gradient border */
-    border: 2px solid var(--gold-color);
+    border: 2px solid transparent; /* Use transparent border base for gradient */
     border-image: var(--gold-gradient) 1;
      /* Remove text shadow if applied by default to text */
     text-shadow: none; 
@@ -305,13 +306,13 @@ main {
 /* Specific style for dark button inside the gold CTA section */
 #cta .cta-button.dark {
     background-color: #000000; /* Keep Black Background */
-    /* Apply black text */
-    color: #000000;
-    /* Remove gradient text effect */
-    background: #000000; /* Ensure background overrides gradient */
-    -webkit-background-clip: initial;
-    background-clip: initial;
-    text-shadow: none;
+    /* Apply gold text for contrast */
+    color: var(--gold-color);
+    /* Remove gradient text override */
+    /* background: #000000; */ /* Ensure background overrides gradient */
+    /* -webkit-background-clip: initial; */
+    /* background-clip: initial; */
+    /* text-shadow: none; */
      /* Apply black border */
     border: 2px solid #000000; /* Black Border */
     border-image: none; /* Override gradient border */
@@ -320,7 +321,7 @@ main {
 /* Hover for dark button inside #cta */
 #cta .cta-button.dark:hover {
     background-color: #222222; /* Slightly lighter black on hover */
-    color: #000000; /* Keep black text */
+    color: var(--gold-color); /* Keep gold text */
     border-color: #000000; /* Keep black border */
 }
 
