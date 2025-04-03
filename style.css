@@ -1597,7 +1597,7 @@ address i {
 
 /* Contact Hours */
 .contact-hours {
-    background-color: #000000; /* Black Background */
+    background-color: transparent; /* Black Background */
     border: 1px solid var(--gold-color); /* Gold Border */
     border-radius: 10px;
     padding: 2rem;
@@ -2343,7 +2343,7 @@ header {
 
 #contact-form-section {
     padding: 4rem 2rem;
-    background-color: #f8f4e9; /* Light beige/off-white, complements gold */
+    background-color: transparent; /* Light beige/off-white, complements gold */
     color: #333; /* Dark text for readability on light background */
     border-top: 2px solid transparent;
     border-image: var(--gold-gradient) 1;
@@ -2705,35 +2705,48 @@ header {
 
 #faq-contact {
     padding: 4rem 2rem;
-    background-color: #f8f4e9; /* Match contact form section background */
-    color: #333; /* Match contact form section text color */
+    background-color: transparent; /* Keep transparent to show body background */
+    color: #dad3c0; /* Light text for dark background */
 }
 
 #faq-contact h2 {
     text-align: center;
     margin-bottom: 1rem;
-    color: #222; /* Darker heading */
+    color: var(--gold-color); /* Gold heading for dark background */
+    /* Inherit font-family and border from general section h2 if needed */
+    font-family: 'Playfair Display', serif; /* Ensure serif font */
+    border-bottom: 2px solid var(--gold-color);
+    display: inline-block; /* For border */
+    padding-bottom: 0.7rem;
+    margin-bottom: 2.5rem; /* Consistent margin */
+    font-size: 2.8em; /* Consistent size */
 }
 
 #faq-contact .section-intro {
     text-align: center;
     max-width: 700px;
     margin: 0 auto 3rem auto;
-    color: #555;
+    color: #dad3c0; /* Light text */
+    font-size: 1.2em; /* Consistent size */
 }
 
 .faqs-container.compact {
-    max-width: 800px; /* Slightly wider for FAQs */
+    max-width: 900px; /* Consistent width */
     margin: 0 auto;
 }
 
 .faq-item {
-    background-color: #fff;
+    background-color: rgba(255, 255, 255, 0.05); /* Dark semi-transparent background */
     margin-bottom: 1rem;
-    border: 1px solid #e0d8c7;
-    border-radius: 6px;
+    border: 1px solid rgba(212, 175, 55, 0.2); /* Subtle gold border */
+    border-radius: 8px; /* Consistent radius */
     overflow: hidden; /* Important for smooth transition */
-    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.faq-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(212, 175, 55, 0.1);
 }
 
 .faq-question {
@@ -2742,18 +2755,18 @@ header {
     align-items: center;
     width: 100%;
     padding: 1.2rem 1.5rem;
-    background-color: #fff;
+    background-color: transparent; /* Use item background */
     border: none;
     text-align: left;
     font-size: 1.1rem;
     font-weight: bold;
-    color: #333;
+    color: #fff; /* White/light text for question */
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
 
 .faq-question:hover {
-    background-color: #f9f9f9;
+    background-color: rgba(255, 255, 255, 0.05); /* Slight highlight on hover */
 }
 
 .faq-question span {
@@ -2770,25 +2783,27 @@ header {
     padding: 0 1.5rem; /* Start with no vertical padding */
     max-height: 0;
     overflow: hidden;
-    background-color: #fdfbf5; /* Slightly different background for answer */
+    background-color: transparent; /* Use item background */
     transition: max-height 0.4s ease-out, padding 0.4s ease-out; /* Smooth transition */
 }
 
 .faq-answer p {
     margin: 0;
     padding: 1.5rem 0; /* Add padding back when open */
-    color: #555;
+    color: #ccc; /* Lighter grey text for answer */
     line-height: 1.7;
-    border-top: 1px solid #eee;
+    border-top: 1px solid rgba(212, 175, 55, 0.2); /* Subtle gold separator */
 }
 
 .faq-answer a {
     color: var(--gold-color);
-    text-decoration: underline;
+    text-decoration: none; /* Remove underline, add hover effect */
+    font-weight: bold;
+    transition: color 0.3s ease;
 }
 
 .faq-answer a:hover {
-    color: #b79226;
+    color: #fff0a0; /* Brighter gold */
 }
 
 /* Style for when the FAQ item is active/open */
@@ -2822,7 +2837,7 @@ header {
 
 #final-cta {
     padding: 4rem 2rem;
-    background-color: #f8f4e9; /* Match other light sections */
+    background-color: transparent; /* Match other light sections */
     text-align: center;
     border-top: 2px solid transparent;
     border-image: var(--gold-gradient) 1;
