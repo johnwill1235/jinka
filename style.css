@@ -236,6 +236,21 @@ main {
     border: 1px solid var(--gold-color); /* Gold border */
 }
 
+/* --- NEW RULE --- */
+/* Specific style for outline button inside the gold CTA section */
+#cta .cta-button.outline {
+    color: #000000; /* Black text */
+    border-color: #000000; /* Black border */
+}
+
+/* Keep hover effect consistent with other buttons in CTA */
+#cta .cta-button.outline:hover {
+    background-color: #000000; /* Black background on hover */
+    color: var(--gold-color); /* Gold text on hover */
+    border-color: #000000; /* Keep border black */
+}
+/* --- END NEW RULE --- */
+
 .cta-button:hover {
     transform: translateY(-3px); /* Slightly more lift */
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* Adjusted shadow */
