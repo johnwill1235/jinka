@@ -135,7 +135,7 @@ main {
         repeating-linear-gradient(0deg, transparent, transparent 49px, var(--gold-color) 49px, var(--gold-color) 50px),
         repeating-linear-gradient(90deg, transparent, transparent 49px, var(--gold-color) 49px, var(--gold-color) 50px);
     background-size: 50px 50px; /* Grid cell size */
-    opacity: 0.1; /* Subtle grid visibility */
+    opacity: 0.25; /* Less transparent grid */
     z-index: 0; /* Place behind content */
 
     /* Animation for movement */
@@ -280,26 +280,35 @@ main {
 /* Larger gold card in Hero */
 #hero .gold-card-svg {
     display: block;
-    /* Increase max-width significantly */
     max-width: 500px; 
-    width: 100%; /* Allow it to fill the container up to max-width */
+    width: 100%; 
     height: auto;
-    margin: 0 auto; /* Center if container is wider */
+    margin: 0 auto; 
     filter: drop-shadow(0 15px 25px rgba(0, 0, 0, 0.4)); 
     position: relative;
     z-index: 1;
 }
 
+/* Enhance card border */
 .gold-card-svg #gold-card-border {
+    stroke: var(--gold-color); /* Ensure using the main gold color */
+    stroke-width: 3px; /* Slightly thicker border */
     stroke-dasharray: 1040;
     stroke-dashoffset: 1040;
     animation: draw 2s ease-out 0.5s forwards, pulseOpacity 3s ease-in-out infinite 2.5s;
 }
 
+/* Enhance icon and text fill */
 .gold-card-svg #card-icon-group path,
-.gold-card-svg text[fill="#bda86f"] {
+.gold-card-svg text {
+    fill: #f3e28c; /* Brighter gold highlight color from h2 gradient */
     animation: pulseOpacity 3s ease-in-out infinite 2.5s;
 }
+
+/* Override inline fill style for specific text if needed (Optional) */
+/* .gold-card-svg text[fill="#bda86f"] { 
+    fill: #f3e28c; 
+} */
 
 @keyframes pulseOpacity {
     0% {
@@ -1753,7 +1762,7 @@ header {
         repeating-linear-gradient(0deg, transparent, transparent 49px, var(--gold-color) 49px, var(--gold-color) 50px),
         repeating-linear-gradient(90deg, transparent, transparent 49px, var(--gold-color) 49px, var(--gold-color) 50px);
     background-size: 50px 50px; /* Grid cell size */
-    opacity: 0.1; /* Subtle grid visibility */
+    opacity: 0.25; /* Less transparent grid */
     z-index: 0; /* Place behind content */
 
     /* Animation for movement */
