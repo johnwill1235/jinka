@@ -224,5 +224,20 @@
     
     <!-- Add JavaScript -->
     <script src="script.js"></script>
+
+    <script>
+        // Add glow effect to hero card after a delay
+        document.addEventListener('DOMContentLoaded', () => {
+            // Adjust this delay (in milliseconds) based on your actual animation timings
+            const glowDelay = 1500; 
+            const heroCard = document.querySelector('.hero-image .gold-card-svg');
+
+            if (heroCard) {
+                setTimeout(() => {
+                    heroCard.classList.add('glow-active');
+                }, glowDelay);
+            }
+        });
+    </script>
 </body>
 </html> 
