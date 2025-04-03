@@ -250,14 +250,14 @@ main {
 }
 
 .cta-button.dark {
-    background-color: #000000; /* Black Background */
+    background-color: var(--gold-color); /* Black Background */
      /* Apply gradient text effect */
     background: var(--gold-gradient);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
      /* Apply gradient border */
-    border: 2px solid transparent;
+    border: 2px solid var(--gold-color);
     border-image: var(--gold-gradient) 1;
      /* Remove text shadow if applied by default to text */
     text-shadow: none; 
