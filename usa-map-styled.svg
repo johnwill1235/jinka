@@ -13,8 +13,13 @@
         </radialGradient>
     </defs>
     <style id="BStyle" type="text/css">
-        path{stroke-linejoin:bevel}.map{fill:#adadad;stroke:#646464;stroke-width:.1}.lakes{fill:#fff;stroke:#646464;stroke-width:.1}.borders{fill:none;stroke:#fff;stroke-width:1}.graticules{fill:none;stroke:#000;opacity:.4;stroke-width:.3}.us-cont{fill:#346733}.state-borders{fill:none;stroke:#fff;stroke-width:.2}
-    </style>
+path { stroke-linejoin: bevel; }
+.map { fill: transparent; stroke: #fff; stroke-width: .3; } /* Ocean via transparent land, white country lines */
+.lakes { fill: transparent; stroke: #fff; stroke-width: .3; } /* Lakes transparent, white lines */
+.borders { fill: none; stroke: #fff; stroke-width: 1; } /* Major borders white */
+.graticules { fill: none; stroke: #fff; opacity: 1; stroke-width: .3; } /* Globe lines white */
+.us-cont { fill: transparent; stroke: gold; stroke-width: 0.5; } /* US transparent fill, gold state outlines */
+.state-borders { fill: none; stroke: #fff; stroke-width: .2; } /* Internal US state borders white (unchanged) */    </style>
     <circle cx="300" cy="300" r="300" style="fill:#fff;stroke:none"/>
     <g class="map">
         <path class="mr" d="m575.06 230.92-.27-.5.27.5z"/>
