@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="32" height="32" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="goldGradient" gradientTransform="rotate(135)">
+      <stop offset="0%" stop-color="#8e6f20" />
+      <stop offset="25%" stop-color="#f3e28c" />
+      <stop offset="40%" stop-color="#c9b074" />
+      <stop offset="50%" stop-color="#a8905f" />
+      <stop offset="60%" stop-color="#fcf59d" />
+      <stop offset="75%" stop-color="#c9b074" />
+      <stop offset="100%" stop-color="#8e6f20" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Black Background with Gold Border -->
+  <rect width="32" height="32" rx="4" ry="4" fill="black" stroke="url(#goldGradient)" stroke-width="1"/>
+  
+  <!-- Profile Icon (Centered and Scaled) -->
+  <g transform="translate(8, 6) scale(0.05)">
+    <path fill="url(#goldGradient)" d="M128 64c0-35.346-28.654-64-64-64S0 28.654 0 64s28.654 64 64 64 64-28.654 64-64zm-64 80c-44.183 0-80 35.817-80 80v16c0 8.837 7.163 16 16 16h128c8.837 0 16-7.163 16-16v-16c0-44.183-35.817-80-80-80z"/>
+  </g>
+  
+  <!-- Text Lines (Simplified) -->
+  <rect x="8" y="19" width="16" height="1.2" rx="0.6" fill="url(#goldGradient)" />
+  <rect x="8" y="22" width="16" height="1" rx="0.5" fill="url(#goldGradient)" />
+  <rect x="8" y="25" width="16" height="0.8" rx="0.4" fill="url(#goldGradient)" />
+</svg> 
