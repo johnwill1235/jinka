@@ -82,6 +82,42 @@
              </div>
         </section>
 
+        <!-- USA Map Section -->
+        <section id="usa-map" class="reveal">
+            <div class="map-container">
+                <svg width="600" height="600" viewBox="0 0 600 600" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                    <title>Contiguous United States</title>
+                    <defs id="mydefs">
+                        <radialGradient id="shadow" cx="280" cy="220" r="380" gradientUnits="userSpaceOnUse">
+                            <stop stop-opacity="0" offset="0"/>
+                            <stop stop-opacity=".006" offset=".5"/>
+                            <stop stop-opacity=".009" offset=".56"/>
+                            <stop stop-opacity=".017" offset=".64"/>
+                            <stop stop-opacity=".039" offset=".7"/>
+                            <stop stop-opacity=".055" offset=".74"/>
+                            <stop stop-opacity=".142" offset="1"/>
+                        </radialGradient>
+                        <linearGradient id="goldGradient" gradientTransform="rotate(135)">
+                            <stop offset="0%" stop-color="#8e6f20" />
+                            <stop offset="25%" stop-color="#f3e28c" />
+                            <stop offset="40%" stop-color="#c9b074" />
+                            <stop offset="50%" stop-color="#a8905f" />
+                            <stop offset="60%" stop-color="#fcf59d" />
+                            <stop offset="75%" stop-color="#c9b074" />
+                            <stop offset="100%" stop-color="#8e6f20" />
+                        </linearGradient>
+                    </defs>
+                    <style id="BStyle" type="text/css">
+                        path{stroke-linejoin:bevel}.map{fill:#adadad;stroke:#646464;stroke-width:.1}.lakes{fill:#fff;stroke:#646464;stroke-width:.1}.borders{fill:none;stroke:#fff;stroke-width:1}.graticules{fill:none;stroke:#000;opacity:.4;stroke-width:.3}.us-cont{fill:transparent}.state-borders{fill:none;stroke:url(#goldGradient);stroke-width:.5}
+                    </style>
+                    <circle cx="300" cy="300" r="300" style="fill:#fff;stroke:none"/>
+                    <g class="map">
+                        <!-- The actual map paths would be here -->
+                    </g>
+                </svg>
+            </div>
+        </section>
+
         <!-- Benefits Section with tech-style cards -->
         <section id="benefits">
             <h2>核心优势</h2>
