@@ -362,7 +362,6 @@ main {
 
 /* Enhance card border */
 .gold-card-svg #gold-card-border {
-    stroke: var(--gold-color); /* Ensure using the main gold color */
     stroke-width: 3px; /* Slightly thicker border */
     stroke-dasharray: 1040;
     stroke-dashoffset: 1040;
@@ -372,7 +371,6 @@ main {
 /* Enhance icon and text fill */
 .gold-card-svg #card-icon-group path,
 .gold-card-svg text {
-    fill: #f3e28c; /* Brighter gold highlight color from h2 gradient */
     animation: pulseOpacity 3s ease-in-out infinite 2.5s;
 }
 
