@@ -30,225 +30,194 @@
     </header>
 
     <main>
-        <!-- Enhanced Hero Section -->
-        <section class="hero-section services-hero">
-            <!-- CSS: Add background image/gradient here -->
-            <div class="container"> <!-- Centering container -->
-                <div class="hero-content text-center"> <!-- Added text-center utility class assumption -->
-                    <h1 class="animate-on-scroll fade-in">特朗普金卡：您的美国身份捷径</h1>
-                    <p class="hero-subtitle animate-on-scroll fade-in delay-100">通过500万美元投资，快速获取美国居留权，尊享全球收入免税特权。</p>
-                    <!-- Lottie animation can be positioned via CSS relative to this content -->
-                    <div class="lottie-container medium hero-lottie animate-on-scroll fade-in delay-200" data-animation="investment">
+        <!-- Page Banner Style (Similar to card.html banner but maybe different background) -->
+        <section class="page-banner services-banner"> 
+            <div class="banner-content">
+                <h1>特朗普金卡：您的美国身份捷径</h1>
+                <p>通过500万美元投资，快速获取美国居留权，尊享全球收入免税特权。</p>
+                <!-- Lottie container - Styling might need adjustment -->
+                <!-- <div class="lottie-container medium hero-lottie" data-animation="investment"></div> -->
+                <a href="#benefits" class="cta-button primary large">探索核心优势 <i class="fas fa-arrow-down"></i></a>
+            </div>
+        </section>
+
+        <!-- Benefits Section using dark-section style -->
+        <section id="benefits" class="dark-section"> 
+            <h2>为何选择特朗普金卡？</h2>
+            <!-- Use benefits-detail-grid for consistency -->
+            <div class="benefits-detail-grid"> 
+                <!-- Benefit Item Structure mimicking benefit-detail-card -->
+                <div class="benefit-detail-card"> 
+                    <div class="benefit-detail-icon"><i class="fas fa-rocket"></i></div> 
+                    <h3>快速审批</h3>
+                    <p>最快90天获批，流程高效。</p>
+                </div>
+                <div class="benefit-detail-card">
+                    <div class="benefit-detail-icon"><i class="fas fa-users"></i></div>
+                    <h3>全家受益</h3>
+                    <p>配偶及未满21岁子女同获身份。</p>
+                </div>
+                <div class="benefit-detail-card">
+                    <div class="benefit-detail-icon"><i class="fas fa-globe-americas"></i></div>
+                    <h3>低门槛</h3>
+                    <p>无居住历史或语言要求。</p>
+                </div>
+                <div class="benefit-detail-card">
+                    <div class="benefit-detail-icon"><i class="fas fa-shield-alt"></i></div>
+                    <h3>税务优势</h3>
+                    <p>全球收入免税，仅美国收入征税。</p>
+                </div>
+                <div class="benefit-detail-card">
+                    <div class="benefit-detail-icon"><i class="fas fa-map-marker-alt"></i></div>
+                    <h3>居住自由</h3>
+                    <p>可自由选择全球任何地区居住。</p>
+                </div>
+                <div class="benefit-detail-card">
+                    <div class="benefit-detail-icon"><i class="fas fa-hand-holding-usd"></i></div>
+                    <h3>投资灵活</h3>
+                    <p>投资资金可保持在您控制之下。</p>
+                </div>
+            </div>
+            <div style="text-align: center; margin-top: 3rem;"> <!-- Centering wrapper -->
+                <a href="card" class="cta-button secondary">深入了解金卡详情</a> 
+            </div>
+        </section>
+
+        <!-- Service Progression Section using dark-section style -->
+        <section id="service-progression" class="dark-section">
+            <h2>简明申请流程</h2>
+            <!-- Lottie container - Styling might need adjustment -->
+            <!-- <div class="lottie-container large" data-animation="processFlow"></div> -->
+
+            <!-- Process Steps Visualization - Adapt styling to dark theme -->
+            <!-- Using a simpler grid or flex layout might be better than visual connectors -->
+            <div class="process-steps-grid"> 
+                <!-- Step Card Structure - Adapt to dark theme -->
+                <div class="process-step-card-dark"> 
+                    <div class="step-icon-wrapper-dark"><i class="fas fa-comments fa-2x"></i></div> 
+                    <div class="step-number-dark">1</div> 
+                    <h3>初步咨询 & 评估</h3>
+                    <p>一对一视频会议，深入了解您的需求，进行资格评估并提供初步方案。</p>
+                </div>
+                <div class="process-step-card-dark">
+                    <div class="step-icon-wrapper-dark"><i class="fas fa-plane-departure fa-2x"></i></div>
+                    <div class="step-number-dark">2</div>
+                    <h3>实地考察 & 签约</h3>
+                    <p>我们的团队飞抵您所在地，进行面对面深入交流，确认方案并签署相关文件。</p>
+                </div>
+                <div class="process-step-card-dark">
+                    <div class="step-icon-wrapper-dark"><i class="fas fa-cogs fa-2x"></i></div>
+                    <div class="step-number-dark">3</div>
+                    <h3>申请处理 & 跟踪</h3>
+                    <p>全程处理申请，包括文件准备、审核、提交，并实时向您更新进度。</p>
+                </div>
+                <div class="process-step-card-dark">
+                    <div class="step-icon-wrapper-dark"><i class="fas fa-handshake fa-2x"></i></div>
+                    <div class="step-number-dark">4</div>
+                    <h3>金卡交付 & 支持</h3>
+                    <p>申请获批后，专人将金卡送达您手中，并提供后续使用指导与服务支持。</p>
+                </div>
+            </div>
+            <!-- Lottie container - Styling might need adjustment -->
+            <!-- <div class="lottie-container medium consultation-lottie" style="margin-top: 3rem;" data-animation="consultation"></div> -->
+        </section>
+
+        <!-- Team Section using dark-section style -->
+        <section id="team" class="dark-section">
+            <h2>精英顾问团队</h2>
+            <p class="section-intro">我们汇聚了金融、法律、税务和客户服务领域的顶尖专家，为您提供全方位的支持。</p>
+            <!-- Lottie container - Styling might need adjustment -->
+            <!-- <div class="lottie-container small success-lottie" data-animation="success"></div> -->
+            <!-- Use team-grid structure -->
+            <div class="team-grid"> 
+                <!-- Team Member Card Structure (similar to team-member) -->
+                <div class="team-member"> 
+                    <div class="member-photo">
+                        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=300&q=80" alt="张明照片">
+                    </div>
+                    <h3>张明</h3>
+                    <p class="member-title">创始人 & CEO</p>
+                    <p class="member-bio">20年国际金融与投资经验，前华尔街投行精英，精通全球资产配置。</p>
+                </div>
+                <div class="team-member">
+                     <div class="member-photo">
+                        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=300&q=80" alt="李华照片">
+                    </div>
+                    <h3>李华</h3>
+                    <p class="member-title">法律事务总监</p>
+                    <p class="member-bio">哈佛法学院背景，10年顶级律所经验，专攻国际移民与投资法。</p>
+                </div>
+                <div class="team-member">
+                     <div class="member-photo">
+                        <img src="https://images.unsplash.com/photo-1556157382-97eda2d62296?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=300&q=80" alt="王强照片">
+                    </div>
+                    <h3>王强</h3>
+                    <p class="member-title">税务规划顾问</p>
+                    <p class="member-bio">前四大会计师事务所合伙人，美国CPA，擅长跨境税务与财富传承。</p>
+                </div>
+                 <div class="team-member">
+                     <div class="member-photo">
+                        <img src="https://images.unsplash.com/photo-1573497019940-1c60c8e38536?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=300&q=80" alt="陈梅照片">
+                    </div>
+                    <h3>陈梅</h3>
+                    <p class="member-title">客户关系总监</p>
+                    <p class="member-bio">15年高端客户服务经验，精通多语，提供专属贴心服务。</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section using dark-section style -->
+        <section id="testimonials" class="dark-section"> 
+            <h2>客户成功案例</h2>
+            <!-- Use testimonials-carousel structure -->
+            <div class="testimonials-carousel"> 
+                <!-- Testimonial Card Structure -->
+                <div class="testimonial-card"> 
+                    <div class="testimonial-content">
+                        <p>"环球精英的服务超出了我的预期。他们的专业团队不仅协助我成功获得了'特朗普金卡'，还为我的全球税务架构提供了宝贵建议，帮我节省了大量税款。"</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-image">
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=80&q=80" alt="陈先生照片">
                         </div>
-                    <a href="#benefits" class="cta-button primary large animate-on-scroll fade-in delay-300">探索核心优势 <i class="fas fa-arrow-down"></i></a>
-                </div>
-            </div>
-        </section>
-
-        <!-- Enhanced Benefits Section -->
-        <section id="benefits" class="benefits-section dark-section section-padding"> <!-- Added padding class assumption -->
-            <div class="container">
-                <h2 class="section-title text-center animate-on-scroll slide-up">为何选择特朗普金卡？</h2>
-                <div class="benefits-grid">
-                    <!-- Benefit Item Structure -->
-                    <div class="benefit-item card-hover animate-on-scroll slide-up delay-100"> <!-- Added card-hover utility class assumption -->
-                        <div class="benefit-icon"><i class="fas fa-rocket fa-2x"></i></div>
-                        <h3 class="benefit-title">快速审批</h3>
-                        <p>最快90天获批，流程高效。</p>
-                    </div>
-                    <div class="benefit-item card-hover animate-on-scroll slide-up delay-150">
-                        <div class="benefit-icon"><i class="fas fa-users fa-2x"></i></div>
-                        <h3 class="benefit-title">全家受益</h3>
-                        <p>配偶及未满21岁子女同获身份。</p>
-                    </div>
-                    <div class="benefit-item card-hover animate-on-scroll slide-up delay-200">
-                        <div class="benefit-icon"><i class="fas fa-globe-americas fa-2x"></i></div>
-                        <h3 class="benefit-title">低门槛</h3>
-                        <p>无居住历史或语言要求。</p>
-                    </div>
-                    <div class="benefit-item card-hover animate-on-scroll slide-up delay-250">
-                        <div class="benefit-icon"><i class="fas fa-shield-alt fa-2x"></i></div>
-                        <h3 class="benefit-title">税务优势</h3>
-                        <p>全球收入免税，仅美国收入征税。</p>
-                    </div>
-                    <div class="benefit-item card-hover animate-on-scroll slide-up delay-300">
-                        <div class="benefit-icon"><i class="fas fa-map-marker-alt fa-2x"></i></div>
-                        <h3 class="benefit-title">居住自由</h3>
-                        <p>可自由选择全球任何地区居住。</p>
-                    </div>
-                    <div class="benefit-item card-hover animate-on-scroll slide-up delay-350">
-                        <div class="benefit-icon"><i class="fas fa-hand-holding-usd fa-2x"></i></div>
-                        <h3 class="benefit-title">投资灵活</h3>
-                        <p>投资资金可保持在您控制之下。</p>
-                    </div>
-                </div>
-                 <div class="cta-center animate-on-scroll fade-in delay-400 section-margin-top"> <!-- Added margin utility class assumption -->
-                     <a href="card" class="cta-button primary">深入了解金卡详情</a>
-                 </div>
-            </div>
-        </section>
-
-        <!-- Enhanced Service Progression Section -->
-        <section id="service-progression" class="process-section section-padding">
-            <div class="container">
-                <h2 class="section-title text-center animate-on-scroll slide-up">简明申请流程</h2>
-                <div class="lottie-container large animate-on-scroll" data-animation="processFlow">
-                    </div>
-
-                <!-- Process Steps Visualization - CSS will handle horizontal layout and connectors -->
-                <div class="process-steps-visual">
-                    <!-- Step 1 -->
-                    <figure class="process-step-card animate-on-scroll slide-up delay-100">
-                        <div class="step-icon-wrapper"><i class="fas fa-comments fa-2x"></i></div>
-                        <figcaption>
-                            <div class="step-number-visual">1</div>
-                            <h3>初步咨询 & 评估</h3>
-                            <p>一对一视频会议，深入了解您的需求，进行资格评估并提供初步方案。</p>
-                        </figcaption>
-                    </figure>
-                    <!-- CSS: Add visual connector (e.g., arrow, line) here -->
-                    <div class="process-connector animate-on-scroll fade-in delay-150"><i class="fas fa-chevron-right"></i></div>
-                    <!-- Step 2 -->
-                    <figure class="process-step-card animate-on-scroll slide-up delay-200">
-                        <div class="step-icon-wrapper"><i class="fas fa-plane-departure fa-2x"></i></div>
-                        <figcaption>
-                            <div class="step-number-visual">2</div>
-                            <h3>实地考察 & 签约</h3>
-                            <p>我们的团队飞抵您所在地，进行面对面深入交流，确认方案并签署相关文件。</p>
-                        </figcaption>
-                    </figure>
-                     <!-- CSS: Add visual connector -->
-                     <div class="process-connector animate-on-scroll fade-in delay-250"><i class="fas fa-chevron-right"></i></div>
-                    <!-- Step 3 -->
-                    <figure class="process-step-card animate-on-scroll slide-up delay-300">
-                        <div class="step-icon-wrapper"><i class="fas fa-cogs fa-2x"></i></div>
-                        <figcaption>
-                            <div class="step-number-visual">3</div>
-                            <h3>申请处理 & 跟踪</h3>
-                            <p>全程处理申请，包括文件准备、审核、提交，并实时向您更新进度。</p>
-                        </figcaption>
-                    </figure>
-                     <!-- CSS: Add visual connector -->
-                     <div class="process-connector animate-on-scroll fade-in delay-350"><i class="fas fa-chevron-right"></i></div>
-                    <!-- Step 4 -->
-                    <figure class="process-step-card animate-on-scroll slide-up delay-400">
-                        <div class="step-icon-wrapper"><i class="fas fa-handshake fa-2x"></i></div>
-                         <figcaption>
-                            <div class="step-number-visual">4</div>
-                            <h3>金卡交付 & 支持</h3>
-                            <p>申请获批后，专人将金卡送达您手中，并提供后续使用指导与服务支持。</p>
-                         </figcaption>
-                    </figure>
-                </div>
-
-                <!-- Consultation Lottie can be positioned here or elsewhere via CSS -->
-                 <div class="lottie-container medium consultation-lottie animate-on-scroll fade-in delay-500 section-margin-top" data-animation="consultation">
-                 </div>
-            </div>
-        </section>
-
-        <!-- Enhanced Team Section -->
-        <section id="team" class="team-section dark-section section-padding">
-            <div class="container">
-                <h2 class="section-title text-center animate-on-scroll slide-up">精英顾问团队</h2>
-                <p class="section-intro text-center animate-on-scroll slide-up delay-100">我们汇聚了金融、法律、税务和客户服务领域的顶尖专家，为您提供全方位的支持。</p>
-                <div class="lottie-container small success-lottie animate-on-scroll fade-in delay-150" data-animation="success">
-                    </div>
-                <div class="team-grid-cards">
-                    <!-- Team Member Card Structure -->
-                    <figure class="team-card card-hover animate-on-scroll zoom-in delay-100">
-                        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=300&q=80" alt="张明照片" class="team-photo">
-                        <figcaption class="team-info">
-                            <h3>张明</h3>
-                            <p class="member-title">创始人 & CEO</p>
-                            <p class="member-bio">20年国际金融与投资经验，前华尔街投行精英，精通全球资产配置。</p>
-                            <!-- Optional: Add social links <div class="social-links"><a href="#"><i...></i></a></div> -->
-                        </figcaption>
-                    </figure>
-                    <figure class="team-card card-hover animate-on-scroll zoom-in delay-200">
-                        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=300&q=80" alt="李华照片" class="team-photo">
-                        <figcaption class="team-info">
-                            <h3>李华</h3>
-                            <p class="member-title">法律事务总监</p>
-                            <p class="member-bio">哈佛法学院背景，10年顶级律所经验，专攻国际移民与投资法。</p>
-                        </figcaption>
-                    </figure>
-                    <figure class="team-card card-hover animate-on-scroll zoom-in delay-300">
-                        <img src="https://images.unsplash.com/photo-1556157382-97eda2d62296?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=300&q=80" alt="王强照片" class="team-photo">
-                         <figcaption class="team-info">
-                            <h3>王强</h3>
-                            <p class="member-title">税务规划顾问</p>
-                            <p class="member-bio">前四大会计师事务所合伙人，美国CPA，擅长跨境税务与财富传承。</p>
-                        </figcaption>
-                    </figure>
-                    <figure class="team-card card-hover animate-on-scroll zoom-in delay-400">
-                        <img src="https://images.unsplash.com/photo-1573497019940-1c60c8e38536?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=300&q=80" alt="陈梅照片" class="team-photo">
-                         <figcaption class="team-info">
-                            <h3>陈梅</h3>
-                            <p class="member-title">客户关系总监</p>
-                            <p class="member-bio">15年高端客户服务经验，精通多语，提供专属贴心服务。</p>
-                        </figcaption>
-                    </figure>
-                </div>
-            </div>
-        </section>
-
-        <!-- Enhanced Client Reviews Section -->
-        <section id="testimonials" class="testimonials-section section-padding">
-            <div class="container">
-                <h2 class="section-title text-center animate-on-scroll slide-up">客户成功案例</h2>
-                <div class="testimonials-container testimonials-grid"> <!-- Added grid class assumption -->
-                    <!-- Testimonial Card Structure -->
-                    <div class="testimonial-card-new card-hover animate-on-scroll slide-in-left delay-100">
-                        <blockquote class="testimonial-text">
-                             <span class="quote-icon top"><i class="fas fa-quote-left"></i></span>
-                             "环球精英的服务超出了我的预期。他们的专业团队不仅协助我成功获得了'特朗普金卡'，还为我的全球税务架构提供了宝贵建议，帮我节省了大量税款。"
-                             <span class="quote-icon bottom"><i class="fas fa-quote-right"></i></span>
-                        </blockquote>
-                        <div class="testimonial-author-info">
-                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=80&q=80" alt="陈先生照片" class="author-img">
-                            <div class="author-details">
-                                <h4>陈先生</h4>
-                                <span>企业家，上海</span>
-                            </div>
+                        <div class="author-info">
+                            <h4>陈先生</h4>
+                            <p>企业家，上海</p>
                         </div>
                     </div>
-                    <div class="testimonial-card-new card-hover animate-on-scroll slide-in-right delay-200">
-                         <blockquote class="testimonial-text">
-                              <span class="quote-icon top"><i class="fas fa-quote-left"></i></span>
-                             "作为一个国际家庭，我们一直在寻找灵活的身份解决方案。环球精英团队的建议让我们全家通过特朗普金卡计划获得了美国身份，同时保留了我们在亚洲的业务，真正实现了全球自由生活。"
-                              <span class="quote-icon bottom"><i class="fas fa-quote-right"></i></span>
-                         </blockquote>
-                        <div class="testimonial-author-info">
-                            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=80&q=80" alt="王女士照片" class="author-img">
-                            <div class="author-details">
-                                <h4>王女士</h4>
-                                <span>投资人，北京</span>
-                            </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                         <p>"作为一个国际家庭，我们一直在寻找灵活的身份解决方案。环球精英团队的建议让我们全家通过特朗普金卡计划获得了美国身份，同时保留了我们在亚洲的业务，真正实现了全球自由生活。"</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-image">
+                            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=80&q=80" alt="王女士照片">
+                        </div>
+                        <div class="author-info">
+                            <h4>王女士</h4>
+                            <p>投资人，北京</p>
                         </div>
                     </div>
-                    <!-- Add more testimonials as needed -->
                 </div>
+                <!-- Add more testimonials as needed -->
             </div>
         </section>
 
-        <!-- Enhanced Final Call to Action Section -->
-        <section id="cta" class="cta-section dark-section section-padding text-center">
-             <div class="container">
-                <i class="fas fa-paper-plane fa-3x cta-icon animate-on-scroll fade-in"></i> <!-- Added Icon -->
-                <h2 class="section-title animate-on-scroll fade-in delay-100">准备开启您的全球精英之旅？</h2>
-                <p class="section-intro animate-on-scroll fade-in delay-200">我们的专家团队随时准备解答您的疑问，助您规划理想的全球身份与投资策略。</p>
-                <div class="cta-buttons animate-on-scroll fade-in delay-300">
-                    <a href="contact" class="cta-button primary large">预约免费咨询</a>
-                    <a href="tel:+8612345678910" class="cta-button outline large">致电 +86 123 4567 8910</a>
-                </div>
+        <!-- Final Call to Action Section - Use #cta styling -->
+        <section id="cta"> 
+            <h2>准备开启您的全球精英之旅？</h2>
+            <p>我们的专家团队随时准备解答您的疑问，助您规划理想的全球身份与投资策略。</p>
+            <div class="cta-buttons">
+                <a href="contact" class="cta-button outline large">预约免费咨询</a> 
+                <a href="tel:+8612345678910" class="cta-button outline large">致电 +86 123 4567 8910</a> 
             </div>
         </section>
     </main>
 
     <footer>
-        <div class="footer-container container"> <!-- Added container for centered content -->
-            <div class="footer-column about-column">
+        <div class="footer-container"> 
+            <div class="footer-column">
                 <h3>环球精英</h3>
                 <p>专业的全球身份规划与投资咨询服务。</p>
                 <div class="social-icons">
@@ -257,7 +226,7 @@
                     <a href="#" aria-label="领英" title="领英"><i class="fab fa-linkedin"></i></a>
                 </div>
             </div>
-            <div class="footer-column links-column">
+            <div class="footer-column">
                 <h3>快速链接</h3>
                 <ul>
                     <li><a href="/">首页</a></li>
@@ -266,28 +235,21 @@
                     <li><a href="/card">金卡详情</a></li>
                     <li><a href="/blog">博客</a></li>
                     <li><a href="/contact">联系我们</a></li>
-                     <!-- Add Privacy/Terms links here if available -->
-                     <!-- <li><a href="/privacy">隐私政策</a></li> -->
-                     <!-- <li><a href="/terms">服务条款</a></li> -->
                 </ul>
             </div>
-            <div class="footer-column contact-column">
+            <div class="footer-column">
                 <h3>联系我们</h3>
                 <address>
-                    <p><i class="fas fa-phone icon-left"></i> <a href="tel:+8612345678910">+86 123 4567 8910</a></p>
-                    <p><i class="fas fa-envelope icon-left"></i> <a href="mailto:info@huanqiujingying.com">info@huanqiujingying.com</a></p>
-                    <!-- Consider adding a physical address -->
-                    <!-- <p><i class="fas fa-map-marker-alt icon-left"></i> 办公地址...</p> -->
+                    <p><i class="fas fa-phone"></i> <a href="tel:+8612345678910">+86 123 4567 8910</a></p>
+                    <p><i class="fas fa-envelope"></i> <a href="mailto:info@huanqiujingying.com">info@huanqiujingying.com</a></p>
                 </address>
             </div>
         </div>
-        <div class="copyright text-center">
+        <div class="copyright">
             <p>&copy; 2025 环球精英 - 特朗普金卡服务。保留所有权利。</p>
         </div>
     </footer>
     <script src="script.js"></script>
-    <!-- Ensure Lottie player and animation scripts (if used) are correctly linked -->
-    <!-- <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script> -->
-    <!-- <script src="animations.js"></script> -->
+    <!-- Lottie scripts would go here if needed -->
 </body>
 </html>

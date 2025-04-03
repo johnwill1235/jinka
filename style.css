@@ -1194,11 +1194,6 @@ address i {
 }
 
 /* Card Details Page */
-.card-banner {
-    background: linear-gradient(135deg, #1a1a1a 0%, #0f0c06 90%), url('https://via.placeholder.com/1920x600') center/cover no-repeat;
-    background-blend-mode: overlay;
-}
-
 .card-display {
     display: flex;
     flex-wrap: wrap;
