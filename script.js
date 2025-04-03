@@ -36,15 +36,6 @@ function reveal() {
 window.addEventListener('scroll', reveal);
 reveal(); // Initial check
 
-// Scroll progress indicator
-const scrollProgress = document.querySelector('.scroll-progress');
-
-window.addEventListener('scroll', () => {
-    const windowHeight = document.documentElement.scrollHeight - window.innerHeight;
-    const scrolled = (window.scrollY / windowHeight) * 100;
-    scrollProgress.style.transform = `scaleX(${scrolled / 100})`;
-});
-
 // Smooth scroll for anchor links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
@@ -222,26 +213,26 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-// Scroll Progress Indicator
-window.addEventListener('scroll', () => {
-    const scrollProgress = document.querySelector('.scroll-progress');
-    const scrollPercent = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
-    scrollProgress.style.width = `${scrollPercent}%`;
-});
-
 // Reveal Animation on Scroll
 const revealOnScroll = () => {
-    revealElements.forEach(element => {
-        const elementTop = element.getBoundingClientRect().top;
-        const elementVisible = 150;
+    // Ensure revealElements is defined (it should be from the top of the script)
+    if (typeof revealElements !== 'undefined') { 
+        revealElements.forEach(element => {
+            const elementTop = element.getBoundingClientRect().top;
+            const elementVisible = 150;
 
-        if (elementTop < window.innerHeight - elementVisible) {
-            element.classList.add('active');
-        }
-    });
+            if (elementTop < window.innerHeight - elementVisible) {
+                element.classList.add('active');
+            }
+        });
+    } else {
+        console.error("revealElements is not defined. Check script loading order or variable scope.");
+    }
 };
 
 window.addEventListener('scroll', revealOnScroll);
+// Initial check
+revealOnScroll();
 
 // Newsletter Form Submission
 const newsletterForm = document.querySelector('.newsletter-form');
@@ -253,4 +244,63 @@ if (newsletterForm) {
         alert('感谢您的订阅！我们会尽快与您联系。');
         newsletterForm.reset();
     });
-} 
+}
+
+// Custom Scrollbar Logic
+document.addEventListener('DOMContentLoaded', () => {
+    const body = document.body;
+    const html = document.documentElement;
+
+    // Create and append the custom scrollbar element dynamically
+    const customScrollbar = document.createElement('div');
+    customScrollbar.classList.add('custom-scrollbar');
+    body.appendChild(customScrollbar);
+
+    const updateScrollbar = () => {
+        const scrollTop = window.pageYOffset || html.scrollTop;
+        const docHeight = Math.max(body.scrollHeight, body.offsetHeight, html.clientHeight, html.scrollHeight, html.offsetHeight);
+        const winHeight = window.innerHeight;
+        const scrollableHeight = docHeight - winHeight;
+
+        if (scrollableHeight <= 0) {
+            customScrollbar.style.opacity = '0'; // Hide scrollbar if no scrolling needed
+            return;
+        } else {
+             customScrollbar.style.opacity = '1'; // Show scrollbar if scrolling needed
+        }
+
+        const scrollbarHeight = 90; // Height of the custom scrollbar indicator
+        const topMargin = 20;      // Space above the scrollbar track
+        const bottomMargin = 20;   // Space below the scrollbar track
+
+        // Calculate the total available track height for the scrollbar indicator
+        const trackHeight = winHeight - topMargin - bottomMargin;
+        // Calculate the height available for the indicator to move within the track
+        const availableScrollbarTrackHeight = trackHeight - scrollbarHeight;
+
+        if(availableScrollbarTrackHeight <= 0) {
+             // If viewport is too small for the scrollbar + margins, hide it or handle differently
+             customScrollbar.style.opacity = '0';
+             return;
+        }
+
+        // Calculate scroll percentage
+        const scrollPercent = scrollTop / scrollableHeight;
+
+        // Calculate the top position for the scrollbar indicator
+        // It starts at topMargin and moves down proportionally within the available track height
+        const topPosition = topMargin + (scrollPercent * availableScrollbarTrackHeight);
+
+        // Apply the transform
+        customScrollbar.style.transform = `translateY(${topPosition}px)`;
+    };
+
+    // Initial update
+    updateScrollbar();
+
+    // Update on scroll
+    window.addEventListener('scroll', updateScrollbar, { passive: true });
+
+    // Update on resize
+    window.addEventListener('resize', updateScrollbar);
+}); 

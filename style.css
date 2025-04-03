@@ -10,6 +10,7 @@ body {
     background-color: #000000; /* Strict Black Background */
     color: #dad3c0; /* Light text */
     line-height: 1.6;
+    height: 100%; /* This might already be set or unnecessary depending on your layout */
 }
 
 /* Define new gold color */
@@ -2202,4 +2203,31 @@ header {
     100% {
         background-position: 0% 0%;
     }
+}
+
+/* Custom Scrollbar Styles */
+.custom-scrollbar {
+    position: fixed; /* Changed from absolute to fixed */
+    top: 0; /* Initial top position, JS will update transform */
+    right: 10px; /* Position on the right side, adjust as needed */
+    width: 4px; /* Width of the scrollbar */
+    height: 90px; /* Height of the scrollbar indicator */
+    background-color: rgba(189, 168, 111, 0.8); /* Gold color with opacity, matches theme */
+    border-radius: 5px;
+    z-index: 1000; /* Ensure it's above other content */
+    transition: opacity 0.3s ease-in-out; /* Smooth fade in/out */
+    opacity: 0; /* Start hidden, JS will show it */
+}
+
+/* Responsive Adjustments if necessary */
+@media (max-width: 768px) {
+    .custom-scrollbar {
+        right: 5px; /* Adjust position for smaller screens */
+        width: 3px;
+    }
+}
+
+/* Ensure body/html have necessary height for scrolling calculation */
+html, body {
+    height: 100%; /* This might already be set or unnecessary depending on your layout */
 } 
