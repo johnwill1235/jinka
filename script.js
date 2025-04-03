@@ -97,4 +97,71 @@ buttons.forEach(button => {
         
         setTimeout(() => ripple.remove(), 600);
     });
-}); 
+});
+
+// Lottie Animation for Process Flow
+const processAnimation = lottie.loadAnimation({
+    container: document.querySelector('.process-animation'),
+    renderer: 'svg',
+    loop: true,
+    autoplay: true,
+    path: 'animations/process-flow.json' // This will be the path to your Lottie animation file
+});
+
+// Blog Category Filtering
+document.addEventListener('DOMContentLoaded', function() {
+    const categoryButtons = document.querySelectorAll('.category-btn');
+    const articles = document.querySelectorAll('.blog-article');
+
+    categoryButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            // Remove active class from all buttons
+            categoryButtons.forEach(btn => btn.classList.remove('active'));
+            // Add active class to clicked button
+            button.classList.add('active');
+
+            const category = button.dataset.category;
+
+            articles.forEach(article => {
+                if (category === 'all' || article.dataset.category === category) {
+                    article.style.display = 'block';
+                } else {
+                    article.style.display = 'none';
+                }
+            });
+        });
+    });
+});
+
+// Scroll Progress Indicator
+window.addEventListener('scroll', () => {
+    const scrollProgress = document.querySelector('.scroll-progress');
+    const scrollPercent = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+    scrollProgress.style.width = `${scrollPercent}%`;
+});
+
+// Reveal Animation on Scroll
+const revealOnScroll = () => {
+    revealElements.forEach(element => {
+        const elementTop = element.getBoundingClientRect().top;
+        const elementVisible = 150;
+
+        if (elementTop < window.innerHeight - elementVisible) {
+            element.classList.add('active');
+        }
+    });
+};
+
+window.addEventListener('scroll', revealOnScroll);
+
+// Newsletter Form Submission
+const newsletterForm = document.querySelector('.newsletter-form');
+if (newsletterForm) {
+    newsletterForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const email = newsletterForm.querySelector('input[type="email"]').value;
+        // Here you would typically send this to your backend
+        alert('感谢您的订阅！我们会尽快与您联系。');
+        newsletterForm.reset();
+    });
+} 
