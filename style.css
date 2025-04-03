@@ -1,5 +1,9 @@
+/* Add Google Font import at the top */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;700&family=Playfair+Display:wght@700&display=swap');
+
 body {
     /* Use Noto Sans SC for better Chinese characters, fallback to sans-serif */
+    /* Keep Noto Sans SC as primary body font */
     font-family: 'Noto Sans SC', 'Helvetica Neue', Helvetica, Arial, sans-serif;
     margin: 0;
     padding: 0;
@@ -8,16 +12,21 @@ body {
     line-height: 1.6;
 }
 
+/* Define new gold color */
+:root {
+    --gold-color: #c9b074; /* Richer gold */
+}
+
 /* Modern Header Styles */
 header {
-    background-color: rgba(26, 26, 26, 0.9); /* Slightly translucent dark for modern look */
-    color: #bda86f; /* Gold text for header */
+    background-color: #1a1a1a; /* Opaque dark background */
+    color: var(--gold-color); /* Use variable */
     padding: 1rem 0;
     position: sticky;
     top: 0;
     z-index: 1000;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.3);
-    border-bottom: 1px solid #333; /* Added subtle border */
+    box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+    border-bottom: 1px solid #3a3a3a; /* Darker border */
 }
 
 .header-container {
@@ -35,8 +44,8 @@ header {
 }
 
 .logo-text {
-    color: #bda86f;
-    border-bottom: 2px solid #bda86f;
+    color: var(--gold-color); /* Use variable */
+    border-bottom: 2px solid var(--gold-color);
     padding-bottom: 3px;
 }
 
@@ -54,37 +63,27 @@ nav ul li {
 nav ul li a {
     color: #dad3c0;
     text-decoration: none;
-    transition: color 0.3s ease;
+    padding: 0.5rem 0.8rem; /* Add some padding for background hover */
+    border-radius: 4px; /* Rounded corners for hover */
+    transition: color 0.3s ease, background-color 0.3s ease;
     font-size: 1rem;
     position: relative;
 }
 
 nav ul li a:hover {
-    color: #bda86f;
+    color: #0f0c06; /* Dark text on hover */
+    background-color: var(--gold-color); /* Gold background on hover */
 }
 
 nav ul li a::after {
-    content: '';
-    position: absolute;
-    width: 0;
-    height: 2px;
-    bottom: -5px;
-    left: 0;
-    background-color: #bda86f;
-    transition: width 0.3s ease;
-}
-
-nav ul li a:hover::after {
-    width: 100%;
+    /* Remove underline effect */
+    content: none;
 }
 
 /* Navigation active state */
 nav ul li a.active {
-    color: #bda86f;
-}
-
-nav ul li a.active::after {
-    width: 100%;
+    color: #0f0c06;
+    background-color: var(--gold-color);
 }
 
 main {
@@ -98,13 +97,15 @@ main {
     display: flex;
     align-items: center;
     justify-content: space-around;
-    padding: 6rem 2rem; /* Increased padding */
-    background: linear-gradient(135deg, #1a1a1a 0%, #0f0c06 70%); /* Subtle gradient */
-    flex-wrap: wrap; /* Allow wrapping on smaller screens */
-    border-bottom: 1px solid #333;
-    margin-bottom: 3rem; /* Keep bottom margin */
-    min-height: 80vh; /* Make hero taller */
-    box-sizing: border-box; /* Include padding in height calculation */
+    padding: 7rem 2rem; /* Slightly increased padding */
+    /* Add subtle noise texture overlay */
+    background: linear-gradient(135deg, rgba(26, 26, 26, 0.95) 0%, rgba(15, 12, 6, 0.95) 70%), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><filter id="n"><feTurbulence type="fractalNoise" baseFrequency="0.7" numOctaves="5" stitchTiles="stitch"/></filter><rect width="100%" height="100%" filter="url(%23n)" opacity="0.03"/></svg>');
+    flex-wrap: wrap;
+    border-bottom: 1px solid #3a3a3a;
+    margin-bottom: 4rem; /* Adjusted margin */
+    min-height: 80vh;
+    box-sizing: border-box;
+    position: relative; /* Needed for potential pseudo-elements later */
 }
 
 .hero-content {
@@ -114,12 +115,14 @@ main {
 }
 
 .hero-content h2 {
-    font-size: 3.5em; /* Larger headline */
-    color: #bda86f;
-    margin-bottom: 1.5rem; /* Increased margin */
-    border-bottom: none; /* Remove border from hero h2 */
+    font-family: 'Playfair Display', serif; /* Apply serif font */
+    font-size: 4em; /* Slightly larger headline */
+    color: var(--gold-color); /* Use variable */
+    margin-bottom: 1.5rem;
+    border-bottom: none;
     padding-bottom: 0;
     line-height: 1.2;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.3); /* Subtle text shadow */
 }
 
 .hero-content p {
@@ -148,21 +151,21 @@ main {
 }
 
 .cta-button.primary {
-    background-color: #bda86f;
+    background-color: var(--gold-color); /* Use variable */
     color: #0f0c06;
-    border: 1px solid #bda86f;
+    border: 1px solid var(--gold-color);
 }
 
 .cta-button.secondary {
     background-color: transparent;
-    color: #bda86f;
-    border: 1px solid #bda86f;
+    color: var(--gold-color); /* Use variable */
+    border: 1px solid var(--gold-color);
 }
 
 .cta-button.dark {
     background-color: #0f0c06;
-    color: #bda86f;
-    border: 1px solid #bda86f;
+    color: var(--gold-color); /* Use variable */
+    border: 1px solid var(--gold-color);
 }
 
 .cta-button.outline {
@@ -172,16 +175,20 @@ main {
 }
 
 .cta-button:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(189, 168, 111, 0.3);
+    transform: translateY(-3px); /* Slightly more lift */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* Adjusted shadow */
 }
 
 .cta-button.primary:hover {
-    background-color: #cdb982;
+    background-color: #dcc384; /* Lighter gold on hover */
+    box-shadow: 0 8px 20px rgba(201, 176, 116, 0.3);
 }
 
 .cta-button.secondary:hover, .cta-button.dark:hover {
-    background-color: rgba(189, 168, 111, 0.1);
+    background-color: rgba(201, 176, 116, 0.1); /* Subtle gold background */
+    color: #dcc384; /* Lighter gold text */
+    border-color: #dcc384; /* Lighter gold border */
+    box-shadow: 0 8px 20px rgba(201, 176, 116, 0.2);
 }
 
 .hero-image {
@@ -195,7 +202,7 @@ main {
     display: block;
     max-width: 100%;
     height: auto;
-    filter: drop-shadow(0 10px 20px rgba(189, 168, 111, 0.3));
+    filter: drop-shadow(0 15px 25px rgba(0, 0, 0, 0.4)); /* Enhanced shadow */
 }
 
 /* Section base styles */
@@ -207,18 +214,19 @@ section {
 }
 
 section h2 {
-    color: #bda86f; /* Gold headings */
-    border-bottom: 2px solid #bda86f;
-    padding-bottom: 0.5rem;
-    margin-bottom: 2rem;
-    font-size: 2.5em;
+    font-family: 'Playfair Display', serif; /* Apply serif font */
+    color: var(--gold-color); /* Use variable */
+    border-bottom: 2px solid var(--gold-color);
+    padding-bottom: 0.7rem; /* Increased padding */
+    margin-bottom: 2.5rem; /* Increased margin */
+    font-size: 2.8em; /* Larger section headings */
     text-align: center;
 }
 
 section h3 {
-    color: #bda86f;
+    color: var(--gold-color); /* Use variable */
     margin-top: 0;
-    font-size: 1.5em;
+    font-size: 1.6em; /* Larger sub-headings */
 }
 
 .section-intro {
@@ -308,11 +316,11 @@ section h3 {
 }
 
 .benefit-card {
-    background-color: rgba(26, 26, 26, 0.7);
-    border: 1px solid #333;
+    background-color: #110e07; /* Darker card background */
+    border: 1px solid #3a3a3a; /* Darker border */
     border-radius: 10px;
     padding: 2rem;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
     position: relative;
     overflow: hidden;
 }
@@ -324,20 +332,28 @@ section h3 {
     left: 0;
     width: 100%;
     height: 5px;
-    background: linear-gradient(90deg, transparent, #bda86f, transparent);
-    opacity: 0.5;
+    background: linear-gradient(90deg, transparent, var(--gold-color), transparent);
+    opacity: 0.6;
 }
 
 .benefit-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    transform: translateY(-10px) scale(1.02); /* Add scale effect */
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3); /* Enhance shadow */
+    border-color: var(--gold-color); /* Highlight border on hover */
 }
 
 .benefit-icon {
     font-size: 2.5rem;
-    color: #bda86f;
-    margin-bottom: 1rem;
+    color: #0f0c06; /* Dark color for icon itself */
+    margin-bottom: 1.5rem; /* Increased margin */
     text-align: center;
+    width: 70px; /* Fixed width */
+    height: 70px; /* Fixed height */
+    line-height: 70px; /* Center icon vertically */
+    border-radius: 50%; /* Make it circular */
+    background: linear-gradient(135deg, var(--gold-color), #a8905f); /* Gold gradient */
+    display: inline-block; /* Allow centering */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2); /* Add shadow to icon bg */
 }
 
 .benefit-card h3 {
@@ -439,8 +455,8 @@ section h3 {
 }
 
 .stat-number {
-    font-size: 2.5em; /* Make numbers prominent */
-    color: #bda86f;
+    font-size: 2.8em; /* Slightly larger stat numbers */
+    color: var(--gold-color); /* Use variable */
     font-weight: bold;
     margin-bottom: 0.5rem;
 }
@@ -459,6 +475,7 @@ section h3 {
 }
 
 #cta h2 {
+    font-family: 'Playfair Display', serif; /* Apply serif font */
     color: #0f0c06;
     border-bottom: 2px solid #0f0c06;
     display: inline-block;
@@ -481,9 +498,10 @@ section h3 {
 
 /* Modern Footer */
 footer {
-    background-color: #1a1a1a;
+    background-color: #110e07; /* Darker footer */
     padding: 4rem 2rem 2rem;
     color: #dad3c0;
+    border-top: 1px solid #2a2a2a;
 }
 
 .footer-container {
@@ -501,10 +519,10 @@ footer {
 }
 
 .footer-column h3 {
-    color: #bda86f;
+    color: var(--gold-color); /* Use variable */
     margin-bottom: 1.5rem;
-    font-size: 1.3rem;
-    border-bottom: 1px solid #333;
+    font-size: 1.4em; /* Slightly larger footer headings */
+    border-bottom: 1px solid #3a3a3a;
     padding-bottom: 0.5rem;
 }
 
@@ -546,7 +564,7 @@ footer {
 }
 
 .social-icons a:hover {
-    background-color: #bda86f;
+    background-color: var(--gold-color); /* Use variable */
 }
 
 .social-icons i {
@@ -562,7 +580,7 @@ address p {
 
 address i {
     margin-right: 0.5rem;
-    color: #bda86f;
+    color: var(--gold-color); /* Use variable */
 }
 
 .copyright {
@@ -672,15 +690,16 @@ address i {
 
 /* Page Banner */
 .page-banner {
-    background: linear-gradient(135deg, #1a1a1a 0%, #0f0c06 90%);
+    background: linear-gradient(135deg, rgba(26, 26, 26, 0.9) 0%, rgba(15, 12, 6, 0.9) 90%);
     padding: 4rem 2rem;
     text-align: center;
-    border-bottom: 1px solid #333;
+    border-bottom: 1px solid #3a3a3a;
 }
 
 .banner-content h1 {
-    color: #bda86f;
-    font-size: 3rem;
+    font-family: 'Playfair Display', serif; /* Apply serif font */
+    color: var(--gold-color); /* Use variable */
+    font-size: 3.2rem; /* Slightly larger banner heading */
     margin-bottom: 1rem;
 }
 
@@ -746,7 +765,7 @@ address i {
     position: absolute;
     left: 0;
     top: 0.3rem;
-    color: #bda86f;
+    color: var(--gold-color); /* Use variable */
 }
 
 /* Values Grid */
@@ -772,7 +791,7 @@ address i {
 
 .value-icon, .benefit-detail-icon {
     font-size: 2.5rem;
-    color: #bda86f;
+    color: var(--gold-color); /* Use variable */
     margin-bottom: 1rem;
 }
 
@@ -793,7 +812,7 @@ address i {
 }
 
 .member-title {
-    color: #bda86f;
+    color: var(--gold-color); /* Use variable */
     font-style: italic;
     margin-bottom: 1rem;
 }
@@ -818,7 +837,7 @@ address i {
 
 .achievement-icon {
     font-size: 2.5rem;
-    color: #bda86f;
+    color: var(--gold-color); /* Use variable */
     margin-bottom: 1rem;
 }
 
@@ -851,7 +870,7 @@ address i {
     left: 0;
     width: 100%;
     height: 4px;
-    background: linear-gradient(90deg, transparent, #bda86f, transparent);
+    background: linear-gradient(90deg, transparent, var(--gold-color), transparent);
     opacity: 0.6;
 }
 
@@ -862,13 +881,13 @@ address i {
 
 .service-icon {
     font-size: 2.5rem;
-    color: #bda86f;
+    color: var(--gold-color); /* Use variable */
     margin-bottom: 1rem;
 }
 
 .service-link {
     display: inline-block;
-    color: #bda86f;
+    color: var(--gold-color); /* Use variable */
     text-decoration: none;
     margin-top: 1rem;
     font-weight: bold;
@@ -881,7 +900,7 @@ address i {
 }
 
 .service-link:hover {
-    color: #d1c092;
+    color: #dcc384; /* Lighter gold */
 }
 
 .service-link:hover i {
@@ -926,7 +945,7 @@ address i {
 .testimonial-content::before {
     content: '"';
     font-size: 4rem;
-    color: rgba(189, 168, 111, 0.2);
+    color: rgba(201, 176, 116, 0.2); /* Use new gold, subtle */
     position: absolute;
     top: -20px;
     left: -10px;
@@ -954,7 +973,7 @@ address i {
 
 .author-info h4 {
     margin: 0;
-    color: #bda86f;
+    color: var(--gold-color); /* Use variable */
 }
 
 .author-info p {
@@ -984,7 +1003,7 @@ address i {
 .approach-number {
     width: 50px;
     height: 50px;
-    background-color: #bda86f;
+    background-color: var(--gold-color); /* Use variable */
     color: #0f0c06;
     border-radius: 50%;
     display: flex;
@@ -1024,7 +1043,7 @@ address i {
 
 .gold-card-svg.large {
     max-width: 100%;
-    filter: drop-shadow(0 20px 30px rgba(189, 168, 111, 0.4));
+    filter: drop-shadow(0 20px 30px rgba(201, 176, 116, 0.4)); /* Use new gold */
 }
 
 .card-description {
@@ -1040,17 +1059,17 @@ address i {
 }
 
 .benefit-tag {
-    background-color: rgba(189, 168, 111, 0.2);
-    color: #bda86f;
+    background-color: rgba(201, 176, 116, 0.2); /* Use new gold */
+    color: var(--gold-color); /* Use variable */
     padding: 0.5rem 1rem;
     border-radius: 30px;
-    border: 1px solid #bda86f;
+    border: 1px solid var(--gold-color);
     font-size: 0.9rem;
     transition: all 0.3s ease;
 }
 
 .benefit-tag:hover {
-    background-color: #bda86f;
+    background-color: var(--gold-color); /* Use variable */
     color: #0f0c06;
 }
 
@@ -1095,7 +1114,7 @@ address i {
 
 .comparison-table th {
     background-color: rgba(26, 26, 26, 0.9);
-    color: #bda86f;
+    color: var(--gold-color); /* Use variable */
     font-weight: bold;
 }
 
@@ -1108,7 +1127,7 @@ address i {
 }
 
 .comparison-table .highlight {
-    color: #bda86f;
+    color: var(--gold-color); /* Use variable */
     font-weight: bold;
 }
 
@@ -1141,7 +1160,7 @@ address i {
 .process-detail-number {
     width: 60px;
     height: 60px;
-    background-color: #bda86f;
+    background-color: var(--gold-color); /* Use variable */
     color: #0f0c06;
     border-radius: 50%;
     display: flex;
@@ -1185,7 +1204,8 @@ address i {
 
 .faq-question h3 {
     margin: 0;
-    font-size: 1.2rem;
+    font-size: 1.2em; /* Slightly larger */
+    color: var(--gold-color); /* Use variable */
 }
 
 .faq-answer {
@@ -1231,7 +1251,7 @@ address i {
 
 .office-icon {
     font-size: 2.5rem;
-    color: #bda86f;
+    color: var(--gold-color); /* Use variable */
     margin-bottom: 1rem;
 }
 
@@ -1244,7 +1264,7 @@ address i {
 
 .contact-office address i {
     margin-right: 0.5rem;
-    color: #bda86f;
+    color: var(--gold-color); /* Use variable */
 }
 
 /* Contact Form */
@@ -1319,7 +1339,7 @@ address i {
 }
 
 .form-group.privacy-policy a {
-    color: #bda86f;
+    color: var(--gold-color); /* Use variable */
     text-decoration: none;
 }
 
@@ -1366,7 +1386,7 @@ address i {
 
 .method-icon i {
     font-size: 1.5rem;
-    color: #bda86f;
+    color: var(--gold-color); /* Use variable */
 }
 
 .method-details {
@@ -1374,7 +1394,7 @@ address i {
 }
 
 .method-details h4 {
-    color: #bda86f;
+    color: var(--gold-color); /* Use variable */
     margin-top: 0;
     margin-bottom: 0.5rem;
 }
@@ -1386,7 +1406,7 @@ address i {
 .method-button {
     display: inline-block;
     padding: 0.5rem 1rem;
-    background-color: #bda86f;
+    background-color: var(--gold-color); /* Use variable */
     color: #0f0c06;
     text-decoration: none;
     border-radius: 5px;
@@ -1395,7 +1415,7 @@ address i {
 }
 
 .method-button:hover {
-    background-color: #d1c092;
+    background-color: #dcc384; /* Lighter gold */
     transform: translateY(-2px);
 }
 
@@ -1428,7 +1448,7 @@ address i {
 }
 
 .contact-hours li span {
-    color: #bda86f;
+    color: var(--gold-color); /* Use variable */
     font-weight: bold;
 }
 
