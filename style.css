@@ -13,9 +13,24 @@ body {
     height: 100%; /* This might already be set or unnecessary depending on your layout */
 }
 
-/* Define new gold color */
+/* Define new gold color and gradient */
 :root {
-    --gold-color: #c9b074; /* Richer gold */
+    --gold-color: #c9b074; /* Richer gold - kept for fallback or simple accents if needed */
+    /* Metallic Gold Gradient */
+    --gold-gradient: linear-gradient(135deg, 
+        #8e6f20 0%,  /* Darker gold shadow */
+        #f3e28c 25%, /* Highlight */
+        #c9b074 40%, /* Main gold */
+        #a8905f 50%, /* Mid-tone gold */
+        #fcf59d 60%, /* Bright highlight */
+        #c9b074 75%, /* Main gold */
+        #8e6f20 100% /* Darker gold shadow */
+    );
+    --text-shadow-gold: 
+        1px 1px 1px rgba(0,0,0,0.6), /* Main shadow for depth */
+        0px 2px 3px rgba(0,0,0,0.4), /* Slightly softer shadow */
+        inset 0px 1px 1px rgba(255,255,255,0.2), /* Inner top highlight */
+        inset 0px -1px 1px rgba(0,0,0,0.3); /* Inner bottom shadow */
 }
 
 /* Modern Header Styles */
@@ -27,7 +42,9 @@ header {
     top: 0;
     z-index: 1000;
     box-shadow: 0 4px 12px rgba(0,0,0,0.4);
-    border-bottom: 1px solid var(--gold-color); /* Gold Border */
+    /* Apply gradient border using border-image */
+    border-bottom: 2px solid transparent; /* Need solid border width */
+    border-image: var(--gold-gradient) 1;
 }
 
 .header-container {
@@ -46,9 +63,15 @@ header {
 }
 
 .logo-text {
-    color: var(--gold-color); /* Use variable */
-    border-bottom: 2px solid var(--gold-color);
-    padding-bottom: 3px;
+    /* Apply gradient text effect */
+    background: var(--gold-gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-shadow: var(--text-shadow-gold); /* Add subtle shadow */
+    /* Remove border-bottom, gradient handles the effect */
+    /* border-bottom: 2px solid var(--gold-color); */ 
+    padding-bottom: 3px; /* Keep padding if desired */
 }
 
 nav ul {
@@ -73,8 +96,9 @@ nav ul li a {
 }
 
 nav ul li a:hover {
+    /* Apply gradient background on hover */
+    background: var(--gold-gradient);
     color: #000000; /* Black Text */
-    background-color: var(--gold-color);
 }
 
 nav ul li a::after {
@@ -84,8 +108,9 @@ nav ul li a::after {
 
 /* Navigation active state */
 nav ul li a.active {
+    /* Apply gradient background for active state */
+    background: var(--gold-gradient);
     color: #000000; /* Black Text */
-    background-color: var(--gold-color);
 }
 
 main {
@@ -101,7 +126,9 @@ main {
     justify-content: space-around;
     padding: 7rem 2rem; /* Slightly increased padding */
     flex-wrap: wrap;
-    border-bottom: 1px solid var(--gold-color); /* Gold Border */
+    /* Apply gradient border using border-image */
+    border-bottom: 2px solid transparent; /* Need solid border width */
+    border-image: var(--gold-gradient) 1;
     margin-bottom: 0;
     margin-top: 0;
     min-height: 80vh;
@@ -130,7 +157,7 @@ main {
     right: -50%;
     bottom: 0;
     width: 200%; /* Ensure it covers viewport width */
-    /* Grid styling: gold lines, 1px thick */
+    /* Grid styling: Use solid gold for grid, gradient might be too noisy */
     background-image: 
         repeating-linear-gradient(0deg, transparent, transparent 49px, var(--gold-color) 49px, var(--gold-color) 50px),
         repeating-linear-gradient(90deg, transparent, transparent 49px, var(--gold-color) 49px, var(--gold-color) 50px);
@@ -159,16 +186,8 @@ main {
     font-family: 'Playfair Display', serif;
     font-size: 4em;
     color: transparent; /* Keep transparent */
-    /* Refined gradient for metallic look */
-    background: linear-gradient(135deg, 
-        #8e6f20 0%,  /* Darker gold shadow */
-        #f3e28c 25%, /* Highlight */
-        #c9b074 40%, /* Main gold */
-        #a8905f 50%, /* Mid-tone gold */
-        #fcf59d 60%, /* Bright highlight */
-        #c9b074 75%, /* Main gold */
-        #8e6f20 100% /* Darker gold shadow */
-    );
+    /* Use the defined gradient */
+    background: var(--gold-gradient);
     background-size: 300% 100%; /* Adjust size for effect */
     -webkit-background-clip: text;
     background-clip: text;
@@ -176,14 +195,8 @@ main {
     border-bottom: none;
     padding-bottom: 0;
     line-height: 1.2;
-    /* Refined text-shadow for depth, not glow */
-    text-shadow: 
-        1px 1px 1px rgba(0,0,0,0.6), /* Main shadow for depth */
-        0px 2px 3px rgba(0,0,0,0.4), /* Slightly softer shadow */
-        inset 0px 1px 1px rgba(255,255,255,0.2), /* Inner top highlight */
-        inset 0px -1px 1px rgba(0,0,0,0.3); /* Inner bottom shadow */
-    /* Remove shimmer animation */
-    /* animation: goldShimmer 4s linear infinite; */
+    /* Use the defined text shadow */
+    text-shadow: var(--text-shadow-gold);
     position: relative;
 }
 
@@ -213,59 +226,102 @@ main {
 }
 
 .cta-button.primary {
-    background-color: var(--gold-color);
+    /* Apply gradient background */
+    background: var(--gold-gradient);
     color: #000000; /* Black Text */
-    border: 1px solid var(--gold-color);
+    /* Remove border, background gradient is enough */
+    border: none; 
+    /* Add a subtle inset shadow for depth */
+    box-shadow: inset 0px 1px 2px rgba(0,0,0,0.3), 0px 2px 4px rgba(0,0,0,0.3);
 }
 
 .cta-button.secondary {
     background-color: transparent;
-    color: var(--gold-color);
-    border: 1px solid var(--gold-color);
+    /* Apply gradient text effect */
+    background: var(--gold-gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    /* Apply gradient border */
+    border: 2px solid transparent;
+    border-image: var(--gold-gradient) 1;
+    /* Remove text shadow if applied by default to text */
+    text-shadow: none; 
 }
 
 .cta-button.dark {
     background-color: #000000; /* Black Background */
-    color: var(--gold-color);
-    border: 1px solid var(--gold-color);
+     /* Apply gradient text effect */
+    background: var(--gold-gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+     /* Apply gradient border */
+    border: 2px solid transparent;
+    border-image: var(--gold-gradient) 1;
+     /* Remove text shadow if applied by default to text */
+    text-shadow: none; 
 }
 
 .cta-button.outline {
     background-color: transparent;
-    color: var(--gold-color); /* Gold text */
-    border: 1px solid var(--gold-color); /* Gold border */
+     /* Apply gradient text effect */
+    background: var(--gold-gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+     /* Apply gradient border */
+    border: 2px solid transparent;
+    border-image: var(--gold-gradient) 1;
+     /* Remove text shadow if applied by default to text */
+    text-shadow: none; 
 }
 
 /* --- NEW RULE --- */
 /* Specific style for outline button inside the gold CTA section */
+/* Keep this specific rule - black text/border inside #cta */
 #cta .cta-button.outline {
     color: #000000; /* Black text */
     border-color: #000000; /* Black border */
+    border-image: none; /* Override gradient border */
+    background: none; /* Override gradient background/text */
+    -webkit-background-clip: initial; /* Reset clipping */
+    background-clip: initial; /* Reset clipping */
+
 }
 
 /* Keep hover effect consistent with other buttons in CTA */
 #cta .cta-button.outline:hover {
     background-color: #000000; /* Black background on hover */
-    color: var(--gold-color); /* Gold text on hover */
+    /* Apply gradient text on hover */
+    background: var(--gold-gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
     border-color: #000000; /* Keep border black */
+    border-image: none; /* Ensure no gradient border on hover here */
 }
-/* --- END NEW RULE --- */
 
 .cta-button:hover {
-    transform: translateY(-3px); /* Slightly more lift */
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* Adjusted shadow */
+    transform: translateY(-2px); /* Keep hover effect */
+    box-shadow: 0 6px 12px rgba(0,0,0,0.3); /* Enhance shadow on hover */
 }
 
 .cta-button.primary:hover {
-    background-color: #dcc384; /* Lighter gold on hover */
-    box-shadow: 0 8px 20px rgba(201, 176, 116, 0.3);
+    /* Adjust gradient or add effect on hover if desired, e.g., brightness */
+    filter: brightness(1.1); 
+    box-shadow: inset 0px 1px 2px rgba(0,0,0,0.4), 0px 4px 8px rgba(0,0,0,0.4);
 }
 
-.cta-button.secondary:hover, .cta-button.dark:hover {
-    background-color: rgba(201, 176, 116, 0.1); /* Subtle gold background */
-    color: #dcc384; /* Lighter gold text */
-    border-color: #dcc384; /* Lighter gold border */
-    box-shadow: 0 8px 20px rgba(201, 176, 116, 0.2);
+.cta-button.secondary:hover, .cta-button.dark:hover, .cta-button.outline:hover:not(#cta .cta-button.outline) { 
+    /* For border/text gradient buttons, make background slightly visible */
+    background-color: rgba(255, 255, 255, 0.05); /* Very subtle background */
+     /* Re-apply gradient text effect (necessary if background changes) */
+    background: var(--gold-gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-shadow: none; /* Ensure no shadow interferes */
 }
 
 .hero-image {
@@ -461,16 +517,13 @@ section h3 {
 
 .benefit-icon {
     font-size: 2.5rem;
-    color: #000000; /* Black Icon Text */
-    margin-bottom: 1.5rem;
-    text-align: center;
-    width: 70px;
-    height: 70px;
-    line-height: 70px;
-    border-radius: 50%;
-    background: linear-gradient(135deg, var(--gold-color), #a8905f);
-    display: inline-block;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    margin-bottom: 1rem;
+    /* Apply gradient text effect */
+    background: var(--gold-gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    display: inline-block; /* Necessary for background clip */
 }
 
 .benefit-card h3 {
@@ -508,20 +561,23 @@ section h3 {
 }
 
 .step-number {
-    width: 60px;
-    height: 60px;
-    background-color: var(--gold-color);
-    color: #000000; /* Black Text */
+    width: 50px;
+    height: 50px;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 1.5rem;
     font-weight: bold;
-    margin: -40px auto 20px;
-    border: 5px solid #000000; /* Black Border */
+    margin: 0 auto 1rem auto;
+    /* Apply gradient background */
+    background: var(--gold-gradient);
+    color: #000000; /* Black Text */
+    /* Remove border */
+    /* border: 2px solid var(--gold-color); */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
     position: relative;
-    z-index: 3;
+    z-index: 1;
 }
 
 .process-step h3 {
@@ -567,10 +623,15 @@ section h3 {
 }
 
 .stat-number {
-    font-size: 2.8em; /* Slightly larger stat numbers */
-    color: var(--gold-color); /* Use variable */
+    font-size: 2.5rem;
     font-weight: bold;
     margin-bottom: 0.5rem;
+    /* Apply gradient text effect */
+    background: var(--gold-gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-shadow: var(--text-shadow-gold); /* Add shadow */
 }
 
 .stat-label {
@@ -631,11 +692,17 @@ footer {
 }
 
 .footer-column h3 {
-    color: var(--gold-color);
-    margin-bottom: 1.5rem;
-    font-size: 1.4em;
-    border-bottom: 1px solid var(--gold-color); /* Gold Border */
-    padding-bottom: 0.5rem;
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+    /* Apply gradient text effect */
+    background: var(--gold-gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    display: inline-block; /* Needed for background clip */
+    border-bottom: none; /* Remove potential underline */
+    padding-bottom: 5px;
+    text-shadow: var(--text-shadow-gold); /* Add shadow */
 }
 
 .footer-column ul {
@@ -664,30 +731,34 @@ footer {
 }
 
 .social-icons a {
-    display: inline-block;
-    width: 40px;
-    height: 40px;
-    background-color: #000000; /* Black Background */
-    border: 1px solid var(--gold-color); /* Gold Border */
-    border-radius: 50%;
-    display: flex;
+    color: #dad3c0; /* Light text color for icon background */
+    margin: 0 0.5rem;
+    font-size: 1.5rem;
+    display: inline-flex; /* Use flex to center icon */
     align-items: center;
     justify-content: center;
-    transition: background-color 0.3s ease;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    /* Apply gradient border */
+    border: 2px solid transparent;
+    border-image: var(--gold-gradient) 1;
+    transition: all 0.3s ease;
 }
 
 .social-icons a:hover {
-    background-color: var(--gold-color);
+    /* Apply gradient background on hover */
+    background: var(--gold-gradient);
+    border-image: none; /* Remove border image when background is applied */
+    border: none;
+    /* Icon color changes to black on hover */
 }
 
 .social-icons i {
-    color: var(--gold-color);
-    font-size: 1.2rem;
-    transition: color 0.3s ease;
-}
-
-.social-icons a:hover i {
-    color: #000000; /* Black Icon */
+    /* Apply gradient text effect to icon on hover */
+    color: #000000; /* Fallback */
+    -webkit-background-clip: initial; /* Reset clipping */
+    background-clip: initial; /* Reset clipping */
 }
 
 address p {
@@ -697,8 +768,14 @@ address p {
 }
 
 address i {
-    margin-right: 0.5rem;
-    color: var(--gold-color); /* Use variable */
+    /* Apply gradient text effect */
+    background: var(--gold-gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    margin-right: 0.8rem;
+    width: 1.2em; /* Ensure consistent spacing */
+    text-align: center;
 }
 
 .copyright {
@@ -958,8 +1035,13 @@ address i {
 
 .achievement-icon {
     font-size: 2.5rem;
-    color: var(--gold-color); /* Use variable */
     margin-bottom: 1rem;
+    /* Apply gradient text effect */
+    background: var(--gold-gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    display: inline-block; /* Necessary for background clip */
 }
 
 .achievement-item h3 {
@@ -1757,7 +1839,7 @@ header {
     right: -50%;
     bottom: 0;
     width: 200%; /* Ensure it covers viewport width */
-    /* Grid styling: gold lines, 1px thick */
+    /* Grid styling: Use solid gold for grid, gradient might be too noisy */
     background-image: 
         repeating-linear-gradient(0deg, transparent, transparent 49px, var(--gold-color) 49px, var(--gold-color) 50px),
         repeating-linear-gradient(90deg, transparent, transparent 49px, var(--gold-color) 49px, var(--gold-color) 50px);
@@ -1845,7 +1927,12 @@ header {
     color: var(--gold-color);
     font-weight: bold;
     margin-bottom: 0.5rem;
-    text-shadow: 0 0 10px rgba(201, 176, 116, 0.3);
+    /* Apply gradient text effect */
+    background: var(--gold-gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-shadow: var(--text-shadow-gold); /* Add shadow */
 }
 
 .stat-label {
