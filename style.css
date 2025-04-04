@@ -2105,26 +2105,34 @@ header {
 }
 
 .category {
-    /* Use solid gold background */
-    background: var(--gold-color);
-    color: #000;
-    padding: 0.3rem 0.8rem;
-    border-radius: 50px;
-    margin-right: 1rem;
-    font-weight: 600;
+    /* Use solid gold for category */
+    color: var(--gold-color); /* CHANGED */
+    /* background: var(--gold-gradient); */ /* Keep background transparent for text readability */
+    /* -webkit-background-clip: text; */
+    /* background-clip: text; */
+    /* color: transparent; */ /* Remove transparent color */
+    font-size: 0.8rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-right: 10px;
+    display: inline-block; /* Allow margin */
 }
 
 .date {
-    color: #999;
+    color: #a0a0a0; /* Light grey for date */
+    font-size: 0.8rem;
 }
 
 .blog-article h2 {
-    margin-top: 0;
-    margin-bottom: 1rem;
-    font-size: 2rem;
-    line-height: 1.3;
-    color: #fff;
     font-family: 'Playfair Display', serif;
+    /* Make H2 titles gold */
+    color: var(--gold-color); /* CHANGED */
+    /* color: #dad3c0; */ /* Original color was light text */
+    font-size: 1.8em; /* Adjusted size */
+    margin: 0.5rem 0 1rem;
+    transition: color 0.3s ease;
+    /* text-shadow: var(--text-shadow-gold); */ /* Optional: Add shadow if desired */
 }
 
 .blog-article h3 {
