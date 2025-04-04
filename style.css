@@ -734,6 +734,18 @@ footer {
     background-clip: initial; /* Reset clipping */
 }
 
+/* Style for WeChat SVG */
+.social-icons a.wechat-link svg {
+    width: 1.5rem; /* Match font size */
+    height: 1.5rem; /* Match font size */
+    fill: var(--gold-color); /* Default to gold */
+    transition: fill 0.3s ease;
+}
+
+.social-icons a.wechat-link:hover svg {
+    fill: #000000; /* Black on hover to match other icons */
+}
+
 address p {
     margin-bottom: 0.5rem;
     display: flex;
@@ -3040,4 +3052,11 @@ header {
     .blog-post-content h3 {
         font-size: 1.5em;
     }
+}
+
+/* Ensure WeChat image fits within the link styling */
+.social-icons a.wechat-link img {
+    width: 1.5rem; /* Match approx size of font awesome icons */
+    height: 1.5rem;
+    /* The gold border/background is handled by the parent 'a' tag styles */
 }
