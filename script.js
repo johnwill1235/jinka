@@ -168,65 +168,6 @@ if (newsletterForm) {
     });
 }
 
-// Custom Scrollbar Logic
-document.addEventListener('DOMContentLoaded', () => {
-    const body = document.body;
-    const html = document.documentElement;
-
-    // Create and append the custom scrollbar element dynamically
-    const customScrollbar = document.createElement('div');
-    customScrollbar.classList.add('custom-scrollbar');
-    body.appendChild(customScrollbar);
-
-    const updateScrollbar = () => {
-        const scrollTop = window.pageYOffset || html.scrollTop;
-        const docHeight = Math.max(body.scrollHeight, body.offsetHeight, html.clientHeight, html.scrollHeight, html.offsetHeight);
-        const winHeight = window.innerHeight;
-        const scrollableHeight = docHeight - winHeight;
-
-        if (scrollableHeight <= 0) {
-            customScrollbar.style.opacity = '0'; // Hide scrollbar if no scrolling needed
-            return;
-        } else {
-             customScrollbar.style.opacity = '1'; // Show scrollbar if scrolling needed
-        }
-
-        const scrollbarHeight = 90; // Height of the custom scrollbar indicator
-        const topMargin = 20;      // Space above the scrollbar track
-        const bottomMargin = 20;   // Space below the scrollbar track
-
-        // Calculate the total available track height for the scrollbar indicator
-        const trackHeight = winHeight - topMargin - bottomMargin;
-        // Calculate the height available for the indicator to move within the track
-        const availableScrollbarTrackHeight = trackHeight - scrollbarHeight;
-
-        if(availableScrollbarTrackHeight <= 0) {
-             // If viewport is too small for the scrollbar + margins, hide it or handle differently
-             customScrollbar.style.opacity = '0';
-             return;
-        }
-
-        // Calculate scroll percentage
-        const scrollPercent = scrollTop / scrollableHeight;
-
-        // Calculate the top position for the scrollbar indicator
-        // It starts at topMargin and moves down proportionally within the available track height
-        const topPosition = topMargin + (scrollPercent * availableScrollbarTrackHeight);
-
-        // Apply the transform
-        customScrollbar.style.transform = `translateY(${topPosition}px)`;
-    };
-
-    // Initial update
-    updateScrollbar();
-
-    // Update on scroll
-    window.addEventListener('scroll', updateScrollbar, { passive: true });
-
-    // Update on resize
-    window.addEventListener('resize', updateScrollbar);
-});
-
 // FAQ Accordion Functionality
 document.addEventListener('DOMContentLoaded', () => {
     const faqItems = document.querySelectorAll('.faq-item');
