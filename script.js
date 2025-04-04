@@ -18,24 +18,6 @@ navLinks.forEach(link => {
     });
 });
 
-// Scroll animations
-const revealElements = document.querySelectorAll('.reveal');
-
-function reveal() {
-    revealElements.forEach(element => {
-        const windowHeight = window.innerHeight;
-        const elementTop = element.getBoundingClientRect().top;
-        const elementVisible = 150;
-
-        if (elementTop < windowHeight - elementVisible) {
-            element.classList.add('active');
-        }
-    });
-}
-
-window.addEventListener('scroll', reveal);
-reveal(); // Initial check
-
 // Smooth scroll for anchor links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
@@ -48,13 +30,6 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             });
         }
     });
-});
-
-// Add parallax effect to hero section
-const hero = document.querySelector('#hero');
-window.addEventListener('scroll', () => {
-    const scrolled = window.pageYOffset;
-    hero.style.backgroundPositionY = scrolled * 0.5 + 'px';
 });
 
 // Add hover effect to benefit cards
@@ -156,38 +131,6 @@ Object.entries(lottieAnimations).forEach(([key, config]) => {
 //     // goldCard.appendChild(shimmerOverlay); - REMOVED
 // }
 
-// Add scroll-triggered animations
-const animatedElements = document.querySelectorAll('.animate-on-scroll');
-const observerOptions = {
-    threshold: 0.1,
-    rootMargin: '0px'
-};
-
-const observer = new IntersectionObserver((entries, observer) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('animate');
-            if (entry.target.dataset.animation) {
-                const animationName = entry.target.dataset.animation;
-                if (lottieAnimations[animationName]) {
-                    const animation = lottie.loadAnimation({
-                        container: entry.target,
-                        renderer: 'svg',
-                        loop: true,
-                        autoplay: true,
-                        path: lottieAnimations[animationName].path
-                    });
-                }
-            }
-            observer.unobserve(entry.target);
-        }
-    });
-}, observerOptions);
-
-animatedElements.forEach(element => {
-    observer.observe(element);
-});
-
 // Blog Category Filtering
 document.addEventListener('DOMContentLoaded', function() {
     const categoryButtons = document.querySelectorAll('.category-btn');
@@ -212,27 +155,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
-
-// Reveal Animation on Scroll
-const revealOnScroll = () => {
-    // Ensure revealElements is defined (it should be from the top of the script)
-    if (typeof revealElements !== 'undefined') { 
-        revealElements.forEach(element => {
-            const elementTop = element.getBoundingClientRect().top;
-            const elementVisible = 150;
-
-            if (elementTop < window.innerHeight - elementVisible) {
-                element.classList.add('active');
-            }
-        });
-    } else {
-        console.error("revealElements is not defined. Check script loading order or variable scope.");
-    }
-};
-
-window.addEventListener('scroll', revealOnScroll);
-// Initial check
-revealOnScroll();
 
 // Newsletter Form Submission
 const newsletterForm = document.querySelector('.newsletter-form');
