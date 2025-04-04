@@ -2895,3 +2895,155 @@ header {
 /* ------------------------------------ *\
     #FOOTER STYLES
 \* ------------------------------------ */
+
+/* ------------------------------------ *\
+    # BLOG POST STYLES
+\* ------------------------------------ */
+
+.blog-post-banner {
+    background-color: #111; /* Slightly lighter than pure black */
+    padding: 3rem 2rem;
+    text-align: center;
+    border-bottom: 1px solid var(--gold-color); /* Gold Border */
+    margin-bottom: 3rem;
+}
+
+.blog-post-banner h1 {
+    font-family: 'Playfair Display', serif; /* Match other headings */
+    color: var(--gold-color); /* Gold heading */
+    font-size: 2.8em; /* Adjust size as needed */
+    margin-bottom: 1rem;
+    line-height: 1.3;
+}
+
+.blog-post-meta {
+    margin-top: 1rem;
+    font-size: 0.9rem;
+    color: #a0a0a0; /* Light grey for meta */
+}
+
+.blog-post-meta .category {
+    display: inline-block;
+    background-color: rgba(212, 175, 55, 0.15); /* Subtle gold background */
+    color: var(--gold-color);
+    padding: 0.3rem 0.8rem;
+    border-radius: 15px;
+    margin-right: 1rem;
+    font-weight: bold;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+}
+
+.blog-post-meta .date {
+    display: inline-block;
+}
+
+.blog-post-meta .date i {
+    margin-right: 0.4rem;
+}
+
+.blog-post-content {
+    max-width: 800px; /* Limit content width for readability */
+    margin: 0 auto 3rem auto; /* Center content, add bottom margin */
+    padding: 0 1rem; /* Padding on smaller screens */
+    color: #dad3c0; /* Ensure base text color */
+    line-height: 1.8; /* Increase line height for readability */
+}
+
+/* Specific styling for elements within the blog post */
+.blog-post-content h2 {
+    font-family: 'Playfair Display', serif;
+    color: var(--gold-color);
+    border-bottom: 2px solid var(--gold-color);
+    padding-bottom: 0.5rem;
+    margin-top: 2.5rem;
+    margin-bottom: 1.5rem;
+    font-size: 2.2em;
+}
+
+.blog-post-content h3 {
+    color: var(--gold-color);
+    font-size: 1.7em;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+}
+
+.blog-post-content p {
+    margin-bottom: 1.5rem;
+}
+
+.blog-post-content ul,
+.blog-post-content ol {
+    margin-left: 1.5rem;
+    margin-bottom: 1.5rem;
+    padding-left: 1rem; /* Indentation */
+}
+
+.blog-post-content li {
+    margin-bottom: 0.8rem;
+}
+
+.blog-post-content ul li::marker {
+     color: var(--gold-color); /* Style list bullets */
+}
+
+/* Specific styling for nested lists within ol */
+.blog-post-content ol ul {
+    margin-top: 0.5rem; /* Space between main list item and nested list */
+    margin-bottom: 0.8rem;
+}
+.blog-post-content ol ul li {
+    margin-bottom: 0.5rem; /* Smaller margin for nested items */
+}
+
+
+.blog-post-content strong {
+    color: #fff; /* Make strong text brighter */
+    font-weight: bold;
+}
+
+.blog-post-content a {
+    color: var(--gold-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.blog-post-content a:hover {
+    color: #fff0a0; /* Brighter gold on hover */
+    text-decoration: underline;
+}
+
+.blog-post-content .disclaimer {
+    margin-top: 3rem;
+    padding: 1.5rem;
+    background-color: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(212, 175, 55, 0.2);
+    border-radius: 8px;
+    font-size: 0.9rem;
+    color: #bbb;
+}
+
+.blog-post-content .disclaimer strong {
+    color: var(--gold-color);
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.back-to-blog {
+    display: inline-block; /* Make it behave like a block for margin */
+    margin-top: 2rem; /* Space above the back button */
+    /* Inherits styles from .cta-button.secondary */
+}
+
+/* Responsive styles for blog posts */
+@media (max-width: 768px) {
+    .blog-post-banner h1 {
+        font-size: 2.2em;
+    }
+    .blog-post-content h2 {
+        font-size: 1.8em;
+    }
+    .blog-post-content h3 {
+        font-size: 1.5em;
+    }
+}
