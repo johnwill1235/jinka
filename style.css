@@ -2870,13 +2870,6 @@ header {
 }
 
 /* Ensure button styles are inherited correctly */
-#final-cta .cta-button.primary {
-    /* Inherits from global .cta-button.primary */
-}
-
-#final-cta .cta-button.secondary {
-    /* Inherits from global .cta-button.secondary */
-}
 
 /* Responsive adjustments for Final CTA */
 @media (max-width: 768px) {
