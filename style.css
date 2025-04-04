@@ -2028,7 +2028,7 @@ header {
 }
 
 .blog-container {
-    display: flex;
+    display: flex; /* Container still uses flex, but articles inside will use grid */
     flex-direction: column;
     gap: 3rem;
 }
@@ -2041,6 +2041,10 @@ header {
     transition: all 0.4s ease;
     border: 1px solid #333;
     position: relative;
+    /* Apply grid layout here */
+    display: grid;
+    grid-template-columns: 1.2fr 1fr; /* Default side-by-side */
+    margin-bottom: 2rem; /* Consistent margin */
 }
 
 .blog-article:hover {
@@ -2066,12 +2070,6 @@ header {
     /* Use solid gold color for underline effect */
     background: var(--gold-color);
     transform: scaleX(1);
-}
-
-.blog-article.featured {
-    display: grid;
-    grid-template-columns: 1.2fr 1fr;
-    margin-bottom: 2rem;
 }
 
 .article-image {
@@ -2257,12 +2255,13 @@ header {
     .articles-grid {
         grid-template-columns: repeat(2, 1fr);
     }
-    
-    .blog-article.featured {
-        grid-template-columns: 1fr;
+
+    /* Update responsive rule to target all articles */
+    .blog-article {
+        grid-template-columns: 1fr; /* Stack columns on medium screens */
     }
-    
-    .blog-article.featured .article-image {
+
+    .blog-article .article-image { /* Apply height only when stacked */
         height: 300px;
     }
 }
@@ -2924,8 +2923,9 @@ header {
 
 .blog-post-meta .category {
     display: inline-block;
-    background-color: rgba(212, 175, 55, 0.15); /* Subtle gold background */
-    color: var(--gold-color);
+    /* background-color: rgba(212, 175, 55, 0.15); */ /* REMOVED subtle gold background */
+    background-color: transparent; /* Ensure transparent background */
+    color: var(--gold-color); /* Make text gold */
     padding: 0.3rem 0.8rem;
     border-radius: 15px;
     margin-right: 1rem;
