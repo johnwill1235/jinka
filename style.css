@@ -126,7 +126,7 @@ nav ul li a.active {
 main {
     flex-grow: 1; /* Allow main content to grow and push footer down */
     /* Keep max-width but allow full width for hero background */
-    margin: 0 auto; /* Center main content sections */
+    /* margin: 0 auto; */ /* Remove this line to allow main to be full width */
     padding: 0; /* Remove padding, handle in sections */
 }
 
