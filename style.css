@@ -734,8 +734,8 @@ footer {
 
 .social-icons a:hover {
     /* Apply solid gold background on hover */
-    background: var(--gold-color);
-    border-color: var(--gold-color); /* Keep border same for consistency */
+    background: #000000;
+    border-color: #000000; /* Keep border same for consistency */
     /* Icon color changes to black on hover */
 }
 
