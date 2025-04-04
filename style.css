@@ -3072,3 +3072,12 @@ header {
     height: 1.5rem;
     /* The gold border/background is handled by the parent 'a' tag styles */
 }
+
+.blog-post-content .featured-image {
+    max-width: 100%; /* Ensure image scales down */
+    height: auto; /* Maintain aspect ratio */
+    display: block; /* Remove extra space below image */
+    margin: 1.5rem auto; /* Center image and add vertical spacing */
+    border-radius: 8px; /* Optional: match container rounding */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3); /* Optional: add subtle shadow */
+}
