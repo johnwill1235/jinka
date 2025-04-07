@@ -3081,3 +3081,36 @@ header {
     border-radius: 8px; /* Optional: match container rounding */
     box-shadow: 0 4px 8px rgba(0,0,0,0.3); /* Optional: add subtle shadow */
 }
+
+/* ------------------------------------ *\\
+    # BLOG POST STYLES
+\\* ------------------------------------ */
+
+/* Style for the anchor wrapping the whole article */
+a.blog-article.article-link {
+    text-decoration: none;
+    color: inherit; /* Inherit text color from parent */
+    display: grid; /* Keep grid layout for featured articles */
+}
+
+/* Ensure elements inside the link maintain their original colors */
+a.blog-article.article-link .article-content h2 {
+    color: var(--gold-color); /* Keep title gold */
+}
+
+a.blog-article.article-link .article-content .read-more {
+    color: var(--gold-color); /* Keep read-more text gold */
+    display: inline-flex; /* Ensure it behaves like before */
+    align-items: center;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    margin-top: auto;
+}
+
+a.blog-article.article-link:hover .article-content .read-more {
+    color: #fff; /* Change read-more color on hover as before */
+}
+
+a.blog-article.article-link:hover .article-content .read-more i {
+    transform: translateX(5px); /* Keep icon animation */
+}
